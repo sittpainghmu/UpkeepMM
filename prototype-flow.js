@@ -4,7 +4,11 @@
 
   const defaultState = {
     adminJobStatus: "In Progress",
+<<<<<<< HEAD
     adminJobAssignee: "Ko Kyaw Zin",
+=======
+    adminJobAssignee: "Kyaw Zin",
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
     technicianJobStatus: "In Progress",
     clientLastRequest: null,
   };
@@ -40,6 +44,7 @@
     });
   }
 
+<<<<<<< HEAD
   function currentActiveLabel(role) {
     if (role === "admin") {
       if (page === "admin-request.html") return "Submit Job";
@@ -112,6 +117,8 @@
     });
   }
 
+=======
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
   function statusClasses(status) {
     const map = {
       Pending: "bg-tertiary-container/10 text-tertiary",
@@ -173,12 +180,15 @@
   function initAdmin() {
     if (!page.startsWith("admin-")) return;
 
+<<<<<<< HEAD
     normalizeRoleNav("admin", [
       { label: "All Jobs", href: "admin-portal.html", icon: "assignment" },
       { label: "Submit Job", href: "admin-request.html", icon: "add_task" },
       { label: "Settings", href: "admin-settings.html", icon: "settings" },
     ]);
 
+=======
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
     wireNav({
       "All Jobs": "admin-portal.html",
       "Submit Job": "admin-request.html",
@@ -212,7 +222,11 @@
           event.stopPropagation();
           const tableRow = button.closest("tr");
           const select = tableRow?.querySelector("select");
+<<<<<<< HEAD
           const assignee = select?.value && !select.value.includes("Select") ? select.value : "Ko Min Thu";
+=======
+          const assignee = select?.value && !select.value.includes("Select") ? select.value : "John Smith";
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
           const statusBadge = tableRow?.querySelector("td:nth-child(5) span");
           const assigneeCell = tableRow?.querySelector("td:nth-child(6)");
           setBadgeText(statusBadge, "Assigned");
@@ -255,8 +269,13 @@
         button.textContent.trim() === "Update Assignment",
       );
       const currentTechnician =
+<<<<<<< HEAD
         document.querySelector('img[alt="Ko Kyaw Zin"]')?.nextElementSibling?.querySelector("p") ||
         Array.from(document.querySelectorAll("p")).find((text) => text.textContent.trim() === "Ko Kyaw Zin");
+=======
+        document.querySelector('img[alt="Kyaw Zin"]')?.nextElementSibling?.querySelector("p") ||
+        Array.from(document.querySelectorAll("p")).find((text) => text.textContent.trim() === "Kyaw Zin");
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
       if (currentTechnician && state.adminJobAssignee) currentTechnician.textContent = state.adminJobAssignee;
       assignmentButton?.addEventListener("click", () => {
         const selected = assignmentSelect?.selectedOptions[0]?.textContent.trim();
@@ -302,11 +321,14 @@
   function initTechnician() {
     if (!page.startsWith("technician-")) return;
 
+<<<<<<< HEAD
     normalizeRoleNav("technician", [
       { label: "All Jobs", href: "technician-portal.html", icon: "assignment" },
       { label: "Settings", href: "technician-settings.html", icon: "settings" },
     ]);
 
+=======
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
     wireNav({
       "All Jobs": "technician-portal.html",
       Settings: "technician-settings.html",
@@ -358,12 +380,15 @@
   function initClient() {
     if (!page.startsWith("client-")) return;
 
+<<<<<<< HEAD
     normalizeRoleNav("client", [
       { label: "My Requests", href: "client-portal.html", icon: "list_alt", aliases: ["Requests"] },
       { label: "New Request", href: "client-request.html", icon: "add_circle", aliases: ["New"] },
       { label: "Settings", href: "client-settings.html", icon: "settings" },
     ]);
 
+=======
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
     wireNav({
       "My Requests": "client-portal.html",
       "New Request": "client-request.html",

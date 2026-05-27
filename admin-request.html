@@ -280,10 +280,17 @@
                   class="w-full h-[48px] px-14 bg-surface-container-low border-transparent rounded-lg font-body-base text-body-base appearance-none focus:ring-2 focus:ring-primary focus:bg-white transition-all"
                 >
                   <option value="">Select a Client Facility...</option>
+<<<<<<< HEAD
                   <option value="1">Junction City Office Tower</option>
                   <option value="2">Pun Hlaing Clinic - Sanchaung</option>
                   <option value="3">Star City Residence</option>
                   <option value="4">Thilawa Logistics Warehouse</option>
+=======
+                  <option value="1">Global Tech Hub - North Tower</option>
+                  <option value="2">Evergreen Medical Plaza</option>
+                  <option value="3">Skyline Residential Complex</option>
+                  <option value="4">Metro Logistics Warehouse</option>
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
                 </select>
                 <span
                   class="material-symbols-outlined absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant"
@@ -301,7 +308,11 @@
                 >
                 <input
                   class="w-full h-[48px] px-lg bg-surface-container-low border-transparent rounded-lg font-body-sm text-body-sm focus:ring-2 focus:ring-primary focus:bg-white outline-none transition-all"
+<<<<<<< HEAD
                   placeholder="Short summary, e.g. low water pressure at Sule Square pantry"
+=======
+                  placeholder="Short summary of the problem"
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
                   type="text"
                 />
               </div>
@@ -318,7 +329,11 @@
                   >
                   <input
                     class="w-full h-full pl-[52px] pr-lg bg-surface-container-low border-transparent rounded-lg font-body-sm text-body-sm focus:ring-2 focus:ring-primary focus:bg-white outline-none transition-all"
+<<<<<<< HEAD
                     placeholder="e.g. Level 2, Room 204, Sanchaung Office"
+=======
+                    placeholder="e.g. Floor 2, Room 204"
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
                     type="text"
                   />
                 </div>
@@ -337,9 +352,17 @@
                   >
                     <option value="">— Select category —</option>
                     <option>HVAC</option>
+<<<<<<< HEAD
                     <option>PLUMBING</option>
                     <option>ELECTRICAL</option>
                     <option>OTHERS</option>
+=======
+                    <option>Plumbing</option>
+                    <option>Electrical</option>
+                    <option>Civil</option>
+                    <option>Janitorial</option>
+                    <option>Security</option>
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
                   </select>
                   <span class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
                 </div>
@@ -501,9 +524,17 @@
   <script>
     const categoryMap = {
       HVAC:         ["Not Cooling", "Not Heating", "Strange Noise", "Water Leak", "Filter Change", "Other"],
+<<<<<<< HEAD
       PLUMBING:     ["Low Water Pressure", "Pipe Leak", "Blocked Drain", "No Hot Water", "Burst Pipe", "Other"],
       ELECTRICAL:   ["Power Outage", "Wiring Fault", "Lighting Issue", "Tripped Breaker", "Socket Not Working", "Other"],
       OTHERS:       ["Door / Window Issue", "Wall or Floor Damage", "Cleaning Request", "Access or Lock Issue", "General Maintenance", "Other"],
+=======
+      Plumbing:     ["Low Water Pressure", "Pipe Leak", "Blocked Drain", "No Hot Water", "Burst Pipe", "Other"],
+      Electrical:   ["Power Outage", "Wiring Fault", "Lighting Issue", "Tripped Breaker", "Socket Not Working", "Other"],
+      Civil:        ["Ceiling Damage", "Floor Damage", "Door / Window Issue", "Wall Crack", "Roof Leak", "Other"],
+      Janitorial:   ["Spillage", "Pest Report", "Waste Collection", "General Cleaning", "Other"],
+      Security:     ["Access Card Issue", "CCTV Fault", "Broken Lock", "Alarm Triggered", "Other"],
+>>>>>>> 4c7e3ae1ace9a5262849a3c00af6a1e5a6ba6042
     };
 
     const parentSel = document.getElementById("cat-parent");
