@@ -1,0 +1,553 @@
+<!doctype html>
+<html class="light" lang="en" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UpKeep MM - Request Detail</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-fixed": "#dbe1ff",
+              "on-tertiary-fixed-variant": "#832700",
+              "tertiary-fixed": "#ffdbcf",
+              "surface-tint": "#2151da",
+              background: "#f9f9ff",
+              "on-tertiary-container": "#ffc9b7",
+              "surface-container-high": "#e1e8fd",
+              "surface-container-lowest": "#ffffff",
+              "inverse-primary": "#b7c4ff",
+              tertiary: "#7f2500",
+              "on-primary-fixed": "#001551",
+              secondary: "#0051d5",
+              "surface-dim": "#d3daef",
+              "secondary-fixed-dim": "#b4c5ff",
+              "primary-fixed": "#dce1ff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "on-secondary-container": "#fefcff",
+              "on-tertiary-fixed": "#390c00",
+              "primary-container": "#1d4ed8",
+              "on-primary-fixed-variant": "#0039b5",
+              "on-tertiary": "#ffffff",
+              "on-surface-variant": "#434655",
+              "surface-variant": "#dce2f7",
+              surface: "#f9f9ff",
+              "secondary-container": "#316bf3",
+              "on-primary-container": "#cad3ff",
+              "inverse-surface": "#293040",
+              "surface-container-highest": "#dce2f7",
+              "outline-variant": "#c4c5d7",
+              primary: "#0037b0",
+              "on-surface": "#141b2b",
+              error: "#ba1a1a",
+              "tertiary-fixed-dim": "#ffb59c",
+              "inverse-on-surface": "#edf0ff",
+              "on-secondary": "#ffffff",
+              "surface-container-low": "#f1f3ff",
+              "primary-fixed-dim": "#b7c4ff",
+              "on-error": "#ffffff",
+              "surface-bright": "#f9f9ff",
+              "on-primary": "#ffffff",
+              "surface-container": "#e9edff",
+              "on-secondary-fixed": "#00174b",
+              outline: "#747686",
+              "error-container": "#ffdad6",
+              "on-error-container": "#93000a",
+              "on-background": "#141b2b",
+              "tertiary-container": "#a73400",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              base: "4px",
+              sm: "8px",
+              md: "16px",
+              lg: "24px",
+              xs: "4px",
+              "margin-desktop": "32px",
+              "margin-mobile": "16px",
+              gutter: "24px",
+              xl: "32px",
+            },
+            fontFamily: {
+              "body-base": ["Inter"],
+              "display-lg": ["Inter"],
+              "headline-md": ["Inter"],
+              "data-tabular": ["Inter"],
+              "title-sm": ["Inter"],
+              "label-uppercase": ["Inter"],
+              "body-sm": ["Inter"],
+            },
+            fontSize: {
+              "body-base": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "display-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "data-tabular": [
+                "14px",
+                { lineHeight: "20px", fontWeight: "500" },
+              ],
+              "title-sm": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+              "label-uppercase": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="bg-background text-on-surface">
+    <!-- Sidebar Navigation -->
+    <aside
+      class="fixed left-0 top-0 h-full w-[260px] bg-background border-r border-outline-variant flex flex-col z-50"
+    >
+      <div class="p-lg flex flex-col gap-base">
+        <h1 class="font-headline-md text-headline-md text-primary">
+          UpKeep MM
+        </h1>
+        <p
+          class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-70"
+        >
+          Client Portal
+        </p>
+      </div>
+            <nav class="flex-1 space-y-1">
+        <a
+          class="flex items-center gap-md px-lg py-sm text-primary font-semibold border-l-[3px] border-primary bg-surface-container-low transition-colors duration-200"
+          href="client-portal.html"
+        >
+          <span class="material-symbols-outlined">list_alt</span>
+          <span class="font-body-sm text-body-sm">My Requests</span>
+        </a>
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="client-request.html"
+        >
+          <span class="material-symbols-outlined">add_circle</span>
+          <span class="font-body-sm text-body-sm">New Request</span>
+        </a>
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="client-settings.html"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span class="font-body-sm text-body-sm">Settings</span>
+        </a>
+      </nav>
+      <nav class="mb-4">
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="log-in.html"
+        >
+          <span class="material-symbols-outlined">logout</span>
+          <span class="font-body-sm text-body-sm">Logout</span>
+        </a>
+      </nav>
+      <div class="px-md py-lg border-t border-outline-variant"></div>
+      <footer
+        class="p-md flex flex-col gap-xs border-t border-outline-variant"
+      ></footer>
+    </aside>
+    <!-- Main Content Area -->
+    <main class="ml-[260px] min-h-screen flex flex-col">
+      <!-- TopNavBar -->
+      <header
+        class="h-16 flex justify-between items-center px-lg bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40"
+      >
+        <div class="flex items-center gap-sm">
+          <span class="font-title-sm font-bold text-primary">UpKeep MM</span>
+        </div>
+      </header>
+      <!-- Page Content -->
+      <div class="flex-1 p-xl flex flex-col gap-lg max-w-[1200px]">
+        <!-- Breadcrumbs -->
+        <nav class="flex items-center gap-sm text-on-surface-variant">
+          <a class="font-body-sm hover:text-primary transition-colors" href="client-portal.html"
+            >My Requests</a
+          >
+          <span
+            class="material-symbols-outlined text-[16px]"
+            data-icon="chevron_right"
+            >chevron_right</span
+          >
+          <span class="font-body-sm font-semibold text-on-surface"
+            >#ORD-8821</span
+          >
+        </nav>
+        <!-- Header Section -->
+        <div class="flex flex-col md:flex-row md:items-start justify-between gap-md">
+          <div class="flex flex-col gap-sm">
+            <p class="font-label-uppercase text-label-uppercase text-outline">#ORD-8821</p>
+            <h2 class="font-display-lg text-display-lg text-on-surface leading-tight">AC Unit Not Cooling</h2>
+            <div class="flex items-center gap-xs">
+              <span class="material-symbols-outlined text-[14px] text-outline">lock</span>
+              <span class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60">Submitted May 12, 2024 · 09:30 AM · Auto-locked</span>
+            </div>
+            <div class="flex gap-sm flex-wrap mt-xs">
+              <span class="px-md py-xs bg-blue-50 text-blue-700 font-label-uppercase text-label-uppercase rounded-full border border-blue-200 flex items-center gap-xs">
+                <span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>
+                In Progress
+              </span>
+              <span class="px-md py-xs bg-red-50 text-red-700 font-label-uppercase text-label-uppercase rounded-full border border-red-200 flex items-center gap-xs">
+                <span class="material-symbols-outlined text-[14px]">priority_high</span>
+                Urgent
+              </span>
+            </div>
+          </div>
+          <div class="flex gap-sm"></div>
+        </div>
+        <!-- Dashboard Grid Layout -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-lg">
+          <!-- Left Column (Main Info) -->
+          <div class="lg:col-span-2 flex flex-col gap-lg">
+            <!-- Job Description Card -->
+            <div
+              class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden"
+            >
+              <div
+                class="px-lg py-md border-b border-outline-variant bg-surface-container-low flex items-center gap-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="description"
+                  >description</span
+                >
+                <h4 class="font-title-sm text-title-sm text-on-surface">
+                  Job Description
+                </h4>
+              </div>
+              <div class="p-lg flex flex-col gap-lg">
+                <p
+                  class="font-body-base text-on-surface-variant leading-relaxed"
+                >
+                  The AC unit in Room 302 is blowing warm air. Staff reported a
+                  faint metallic rattling noise coming from the vents earlier
+                  today. The temperature in the room has risen to 78°F.
+                  Immediate inspection of the compressor and coolant levels is
+                  requested to prevent disruption of the ongoing training
+                  session scheduled for tomorrow.
+                </p>
+                <div
+                  class="grid grid-cols-2 gap-lg pt-md border-t border-outline-variant"
+                >
+                  <div class="flex flex-col gap-xs">
+                    <span
+                      class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60"
+                      >Location</span
+                    >
+                    <div class="flex items-center gap-sm">
+                      <span
+                        class="material-symbols-outlined text-secondary"
+                        data-icon="location_on"
+                        >location_on</span
+                      >
+                      <span class="font-body-base font-semibold"
+                        >Level 3, Room 302, Hledan Center</span
+                      >
+                    </div>
+                  </div>
+                  <div class="flex flex-col gap-xs">
+                    <span
+                      class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60"
+                      >Category</span
+                    >
+                    <div class="flex items-center gap-sm">
+                      <span
+                        class="material-symbols-outlined text-tertiary"
+                        data-icon="hvac"
+                        >hvac</span
+                      >
+                      <span class="font-body-base font-semibold">HVAC → Not Cooling</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Status History Card -->
+            <div
+              class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden"
+            >
+              <div
+                class="px-lg py-md border-b border-outline-variant bg-surface-container-low flex items-center gap-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="history"
+                  >history</span
+                >
+                <h4 class="font-title-sm text-title-sm text-on-surface">
+                  Status History
+                </h4>
+              </div>
+              <div class="p-lg">
+                <div class="flex flex-col gap-0">
+                  <!-- Step 1 -->
+                  <div class="flex gap-lg pb-lg relative">
+                    <div
+                      class="absolute left-[11px] top-[24px] bottom-0 w-[2px] bg-secondary"
+                    ></div>
+                    <div
+                      class="relative z-10 w-6 h-6 rounded-full bg-secondary flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[14px] text-white"
+                        data-icon="check"
+                        >check</span
+                      >
+                    </div>
+                    <div class="flex flex-col">
+                      <p class="font-body-base font-semibold text-on-surface">
+                        Requested
+                      </p>
+                      <p class="font-body-sm text-on-surface-variant">
+                        Ticket created by Ma Thandar Hlaing
+                      </p>
+                      <p
+                        class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60 mt-xs"
+                      >
+                        May 12, 09:30 AM
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Step 2 -->
+                  <div class="flex gap-lg pb-lg relative">
+                    <div
+                      class="absolute left-[11px] top-[24px] bottom-0 w-[2px] bg-secondary"
+                    ></div>
+                    <div
+                      class="relative z-10 w-6 h-6 rounded-full bg-secondary flex items-center justify-center"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[14px] text-white"
+                        data-icon="check"
+                        >check</span
+                      >
+                    </div>
+                    <div class="flex flex-col">
+                      <p class="font-body-base font-semibold text-on-surface">
+                        Assigned
+                      </p>
+                      <p class="font-body-sm text-on-surface-variant">
+                        Yangon maintenance team assigned Ko Kyaw Zin
+                      </p>
+                      <p
+                        class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60 mt-xs"
+                      >
+                        May 12, 11:15 AM
+                      </p>
+                    </div>
+                  </div>
+                  <!-- Step 3 -->
+                  <div class="flex gap-lg">
+                    <div
+                      class="relative z-10 w-6 h-6 rounded-full border-2 border-secondary bg-surface-container-lowest flex items-center justify-center"
+                    >
+                      <div
+                        class="w-2 h-2 rounded-full bg-secondary animate-pulse"
+                      ></div>
+                    </div>
+                    <div class="flex flex-col">
+                      <p class="font-body-base font-semibold text-secondary">
+                        In Progress
+                      </p>
+                      <p class="font-body-sm text-on-surface-variant">
+                        Technician is currently on-site for repairs
+                      </p>
+                      <p
+                        class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60 mt-xs"
+                      >
+                        May 13, 08:45 AM
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- Right Column (Sidebar Info) -->
+          <div class="flex flex-col gap-lg">
+            <!-- Technician Card -->
+            <div
+              class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden"
+            >
+              <div
+                class="px-lg py-md border-b border-outline-variant bg-surface-container-low flex items-center gap-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="badge"
+                  >badge</span
+                >
+                <h4 class="font-title-sm text-title-sm text-on-surface">
+                  Technician
+                </h4>
+              </div>
+              <div class="p-lg flex items-center gap-md">
+                <img
+                  alt="Technician Ko Kyaw Zin"
+                  class="h-12 w-12 rounded-lg object-cover border border-outline-variant"
+                  data-alt="A focused portrait of a professional maintenance technician named Ko Kyaw Zin, wearing a grey utility uniform. The lighting is crisp and functional, highlighting a reliable and skilled persona. Background shows a clean, organized industrial workshop environment with subtle blue tones to match the corporate SaaS color scheme."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuDwp_LDKJKs_VpvLPsrj4KN5EBOCkVaxDbNkA0PxEbDcQuCJRgtkEsIaUE5xENFR0NX1bh7GiFNaDAzPJC7qYzQr5Zt1JhWz0hx5G3BF92AwwwTFYlWhwPAjU2F1l3p4XEiExDOQ10CTm9GWa00LY7l7qkHzsm-G7xAtU6onU1BUOvgAMhy-IxdmsvCCDx0jUsD7eWihUXBSuQvaXuW-d8nNVbiX36B4OPr-7FFdhWTIrHP2qQ5cVWkAst0QMw7yCQUy9bE2L7l4do"
+                />
+                <div class="flex flex-col">
+                  <p class="font-body-base font-bold text-on-surface">
+                    Ko Kyaw Zin
+                  </p>
+                  <p class="font-body-sm text-on-surface-variant">
+                    Senior HVAC Technician
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Attachments Card -->
+            <div
+              class="bg-surface-container-lowest border border-outline-variant rounded-xl overflow-hidden"
+            >
+              <div
+                class="px-lg py-md border-b border-outline-variant bg-surface-container-low flex items-center gap-sm"
+              >
+                <span
+                  class="material-symbols-outlined text-primary"
+                  data-icon="attachment"
+                  >attachment</span
+                >
+                <h4 class="font-title-sm text-title-sm text-on-surface">
+                  Attachments
+                </h4>
+              </div>
+              <div class="p-lg">
+                <div
+                  class="relative group cursor-pointer overflow-hidden rounded-lg border border-outline-variant"
+                >
+                  <img
+                    alt="Pre-job AC unit photo"
+                    class="w-full h-40 object-cover transition-transform duration-500 group-hover:scale-110"
+                    data-alt="A detailed, high-resolution photograph of a wall-mounted commercial AC unit in a Yangon office setting. The photo is taken from a low angle to show the ventilation grills. The lighting is bright and clean, emphasizing a professional inspection process. The color palette is dominated by cool whites and greys with professional clarity."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-YMzTnWc8H3SKXaHNucpxEgNbigsgh4sVCNo07LZ8Ro1hTYQtQYNtUrEQLXbTGdvy5mBDY5gpJNjKMochSEZ9QN-cgjD3HraXaL9ocym6jvQrRK45AacmMutRWQCbRyLINNqqOkRekqL1CTNhtgEW7T4ULjluls04Y_53VZvjYRBnSS3RwWCUeAadkmdDBMEmSL2FeymgXo5RPbftg8QREDZoaZsKNscTuZLVMqQxc-DtD-qrnvSq0lbd7qVjGkZ_PgXQ0uH9uzg"
+                  />
+                  <div
+                    class="absolute inset-0 bg-on-surface/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-white text-[32px]"
+                      data-icon="zoom_in"
+                      >zoom_in</span
+                    >
+                  </div>
+                </div>
+                <div class="mt-md flex flex-col gap-xs">
+                  <p class="font-body-sm font-semibold text-on-surface">
+                    ac_unit_pre_inspection.jpg
+                  </p>
+                  <p
+                    class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60"
+                  >
+                    Uploaded May 12, 09:30 AM
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Footer Action -->
+        <div
+          class="mt-xl py-lg border-t border-outline-variant flex items-center"
+        >
+          <button
+            class="flex items-center gap-sm text-on-surface-variant hover:text-primary transition-colors font-body-base font-semibold"
+          >
+            <span class="material-symbols-outlined" data-icon="arrow_back"
+              >arrow_back</span
+            >
+            Back to Request List
+          </button>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Simple micro-interaction for active states or feedback
+      document.querySelectorAll("button, a").forEach((el) => {
+        el.addEventListener("mousedown", () => {
+          el.style.transform = "scale(0.98)";
+        });
+        el.addEventListener("mouseup", () => {
+          el.style.transform = "scale(1)";
+        });
+        el.addEventListener("mouseleave", () => {
+          el.style.transform = "scale(1)";
+        });
+      });
+    </script>
+  
+  <script>
+    document.querySelectorAll('nav a').forEach(a => {
+      const t = a.textContent.trim();
+      if (t === 'New Request') a.href = 'client-request.html';
+      if (t === 'Settings')    a.href = 'client-settings.html';
+      if (t === 'Logout')      a.href = 'log-in.html';
+    });
+    // Back to Request List button
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.textContent.trim().includes('Back to Request List') || btn.textContent.trim().includes('Back')) {
+        btn.addEventListener('click', () => location.href = 'client-portal.html');
+      }
+    });
+    // Breadcrumb My Requests link
+    document.querySelectorAll('a').forEach(a => {
+      if (a.textContent.trim() === 'My Requests') a.href = 'client-portal.html';
+    });
+  </script>
+  <script src="prototype-flow.js"></script>
+  </body>
+</html>

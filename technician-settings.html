@@ -1,0 +1,482 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UpKeep MM - Technician Settings</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts: Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-secondary-fixed": "#00174b",
+              "secondary-fixed-dim": "#b4c5ff",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#832700",
+              outline: "#747686",
+              "inverse-on-surface": "#edf0ff",
+              "secondary-container": "#316bf3",
+              "surface-tint": "#2151da",
+              "on-primary": "#ffffff",
+              "primary-fixed": "#dce1ff",
+              "surface-container-highest": "#dce2f7",
+              surface: "#f9f9ff",
+              "on-background": "#141b2b",
+              "surface-container": "#e9edff",
+              "on-tertiary-container": "#ffc9b7",
+              "surface-container-low": "#f1f3ff",
+              "error-container": "#ffdad6",
+              "on-surface": "#141b2b",
+              "surface-bright": "#f9f9ff",
+              "secondary-fixed": "#dbe1ff",
+              "primary-fixed-dim": "#b7c4ff",
+              "on-error": "#ffffff",
+              secondary: "#0051d5",
+              primary: "#0037b0",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#293040",
+              "on-surface-variant": "#434655",
+              "on-secondary-container": "#fefcff",
+              "primary-container": "#1d4ed8",
+              "inverse-primary": "#b7c4ff",
+              "on-primary-fixed": "#001551",
+              "on-secondary": "#ffffff",
+              tertiary: "#7f2500",
+              "outline-variant": "#c4c5d7",
+              error: "#ba1a1a",
+              "tertiary-fixed": "#ffdbcf",
+              "tertiary-container": "#a73400",
+              "on-primary-fixed-variant": "#0039b5",
+              "tertiary-fixed-dim": "#ffb59c",
+              "on-secondary-fixed-variant": "#003ea8",
+              "surface-dim": "#d3daef",
+              "on-primary-container": "#cad3ff",
+              "surface-variant": "#dce2f7",
+              "on-tertiary-fixed": "#390c00",
+              background: "#f9f9ff",
+              "on-tertiary": "#ffffff",
+              "surface-container-high": "#e1e8fd",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              xs: "4px",
+              "margin-mobile": "16px",
+              base: "4px",
+              xl: "32px",
+              sm: "8px",
+              md: "16px",
+              lg: "24px",
+              gutter: "24px",
+              "margin-desktop": "32px",
+            },
+            fontFamily: {
+              "label-uppercase": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-sm": ["Inter"],
+              "data-tabular": ["Inter"],
+              "body-base": ["Inter"],
+              "title-sm": ["Inter"],
+              "display-lg": ["Inter"],
+            },
+            fontSize: {
+              "label-uppercase": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "data-tabular": [
+                "14px",
+                { lineHeight: "20px", fontWeight: "500" },
+              ],
+              "body-base": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "title-sm": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+              "display-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f9f9ff;
+      }
+      .settings-card {
+        border: 1px solid #e5e7eb;
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface">
+    <!-- SideNavBar Shell -->
+    <aside
+      class="fixed left-0 top-0 h-full w-[260px] bg-surface dark:bg-surface-dim border-r border-outline-variant dark:border-outline flex flex-col py-lg z-50"
+    >
+      <div class="px-lg mb-xl">
+        <h1
+          class="text-title-sm font-title-sm text-primary dark:text-inverse-primary"
+        >
+          UpKeep MM
+        </h1>
+        <p class="text-body-sm text-on-surface-variant">Technician Portal</p>
+      </div>
+      <nav class="flex-grow">
+        <!-- All Jobs Tab -->
+        <a
+          class="flex items-center gap-md text-on-surface-variant hover:bg-surface-container-high px-lg py-md transition-colors active:opacity-80"
+          href="technician-portal.html"
+        >
+          <span class="material-symbols-outlined" data-icon="assignment"
+            >assignment</span
+          >
+          <span class="font-body-base text-body-base">All Jobs</span>
+        </a>
+        <!-- Settings Tab (Active) -->
+        <a
+          class="flex items-center gap-md bg-secondary-container text-on-secondary-container border-l-4 border-primary px-lg py-md transition-all"
+          href="technician-settings.html"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="settings"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >settings</span
+          >
+          <span class="font-body-base text-body-base">Settings</span>
+        </a>
+      </nav>
+      <div class="mt-auto px-lg pt-lg border-t border-outline-variant">
+        <a
+          class="flex items-center gap-md text-on-surface-variant hover:bg-surface-container-high px-lg py-md rounded-lg transition-colors"
+          href="log-in.html"
+        >
+          <span class="material-symbols-outlined" data-icon="logout"
+            >logout</span
+          >
+          <span class="font-body-base text-body-base">Logout</span>
+        </a>
+      </div>
+    </aside>
+    <!-- TopAppBar Shell -->
+    <header
+      class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface-container-lowest dark:bg-surface-container-low border-b border-outline-variant dark:border-outline flex justify-between items-center px-margin-desktop z-40"
+    >
+      <div class="flex items-center gap-md">
+        <h2
+          class="font-headline-md text-headline-md text-primary dark:text-inverse-primary"
+        >
+          Settings
+        </h2>
+      </div>
+      <div class="flex items-center gap-lg">
+        <div class="relative group">
+          <span
+            class="material-symbols-outlined text-on-surface-variant cursor-pointer active:scale-95 transition-colors hover:text-primary"
+            data-icon="notifications"
+            >notifications</span
+          >
+          <span
+            class="absolute top-0 right-0 w-2 h-2 bg-error rounded-full border-2 border-surface"
+          ></span>
+        </div>
+        <div class="flex items-center gap-sm cursor-pointer active:scale-95">
+          <img
+            alt="Technician Profile"
+            class="w-8 h-8 rounded-full border border-outline-variant object-cover"
+            data-alt="A professional portrait of a skilled male maintenance technician in a clean blue uniform. He has a confident and friendly expression, set against a blurred background of a modern, organized industrial workshop. The lighting is soft and natural, emphasizing a high-end corporate SaaS aesthetic with clean lines and professional clarity."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFohHwcsWooxw5lR8Ga3AWAOWyGs7yTzQkkFWwwS8mDKL3abg34zlEv5iNdgyoDiqlHLzTZMx_hwf8NLNmqKBihAcpQn-sOifHZkalvAc2ZoVU6Kuk1K0Eq-9XYff6qsQO7ihUjyS7m7L18E6QWwQXvXyV8GQCYo1ktVBVTVtjmi0NzzjSUkMoq1FdI3HhUk1z7zTh-ORqAo442rsDLMGbXMeMQS0A0FLzN6a7cKYjDaIqNvzIx3GnSWlAvNvhAS1mk5DENcBpcaE"
+          />
+          <span
+            class="material-symbols-outlined text-on-surface-variant"
+            data-icon="account_circle"
+            >account_circle</span
+          >
+        </div>
+      </div>
+    </header>
+    <!-- Main Content Area -->
+    <main class="ml-[260px] pt-16 min-h-screen">
+      <div class="max-w-[800px] mx-auto py-xl px-margin-desktop">
+        <form class="space-y-lg" id="settings-form">
+          <!-- Profile Section -->
+          <section class="settings-card p-lg">
+            <div class="flex items-center gap-md mb-lg">
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="person"
+                >person</span
+              >
+              <h3 class="font-title-sm text-title-sm">Profile Information</h3>
+            </div>
+            <div class="flex flex-col md:flex-row gap-xl items-start">
+              <div class="relative group">
+                <img
+                  alt="Profile Image Large"
+                  class="w-32 h-32 rounded-xl object-cover border-2 border-surface-container-high"
+                  data-alt="A high-quality close-up portrait of a male technician with a warm, professional smile. He wears a high-visibility navy work shirt. The scene is bright and airy, representing an efficient and modern workspace. The photo has a shallow depth of field, with soft corporate office lighting that aligns with a premium software interface."
+                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuCbZLx9P38WPtYN96QKjrigi5zpBJW04HWsGojNXBgAqYNrdyQt664Av6ariz3d7HRg-9eGzaOdu9MxFuEmTq2F9bx5rokCEiWwbD0lqMXY0fzJXQUluR_XlauqWb51Sjc42XQw4Ckztn9w3R1lnuMFKIrPDtF1DS09EwTJO7pbOHQEuJt0WZR6D4RBvWDFSx_g5fUfX5MXRjPpKX_seqsWskCo8aLBz0xJmWbTjuVSCHpZ_8H0ZBbFIsPCb-ktcORi7WbPfDQsDKE"
+                />
+                <button
+                  class="absolute -bottom-2 -right-2 bg-primary text-on-primary p-2 rounded-full shadow-lg hover:scale-110 transition-transform"
+                  type="button"
+                >
+                  <span
+                    class="material-symbols-outlined text-[20px]"
+                    data-icon="edit"
+                    >edit</span
+                  >
+                </button>
+              </div>
+              <div class="flex-grow w-full space-y-md">
+                <div class="grid grid-cols-1 gap-md">
+                  <div class="flex flex-col gap-xs">
+                    <label
+                      class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                      >Full Name</label
+                    >
+                    <input
+                      class="w-full px-md py-sm border border-outline-variant rounded-lg bg-surface focus:border-primary focus:ring-1 focus:ring-primary font-body-sm text-body-sm outline-none transition-all"
+                      type="text"
+                      value="Ko Htet Aung"
+                    />
+                  </div>
+                  <div class="flex flex-col gap-xs">
+                    <label
+                      class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                      >Phone Number</label
+                    >
+                    <input
+                      class="w-full px-md py-sm border border-outline-variant rounded-lg bg-surface focus:border-primary focus:ring-1 focus:ring-primary font-body-sm text-body-sm outline-none transition-all"
+                      type="tel"
+                      value="+1 (555) 000-0000"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Preferences Section -->
+          <section class="settings-card p-lg">
+            <div class="flex items-center gap-md mb-lg">
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="tune"
+                >tune</span
+              >
+              <h3 class="font-title-sm text-title-sm">Preferences</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                  >System Theme</label
+                >
+                <select
+                  class="w-full px-md py-sm border border-outline-variant rounded-lg bg-surface focus:border-primary focus:ring-1 focus:ring-primary font-body-sm text-body-sm outline-none transition-all appearance-none cursor-pointer"
+                >
+                  <option value="light">Light Mode</option>
+                  <option value="dark">Dark Mode</option>
+                  <option selected="" value="system">System Default</option>
+                </select>
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                  >Language</label
+                >
+                <select
+                  class="w-full px-md py-sm border border-outline-variant rounded-lg bg-surface focus:border-primary focus:ring-1 focus:ring-primary font-body-sm text-body-sm outline-none transition-all appearance-none cursor-pointer"
+                >
+                  <option selected="" value="en">English (US)</option>
+                  <option value="es">Español</option>
+                  <option value="fr">Français</option>
+                  <option value="de">Deutsch</option>
+                </select>
+              </div>
+            </div>
+          </section>
+          <!-- Security Section -->
+          <section class="settings-card p-lg">
+            <div class="flex items-center gap-md mb-lg">
+              <span
+                class="material-symbols-outlined text-primary"
+                data-icon="lock"
+                >lock</span
+              >
+              <h3 class="font-title-sm text-title-sm">Security</h3>
+            </div>
+            <div class="space-y-md">
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                  >Current Password</label
+                >
+                <input
+                  class="w-full px-md py-sm border border-outline-variant rounded-lg bg-surface focus:border-primary focus:ring-1 focus:ring-primary font-body-sm text-body-sm outline-none transition-all"
+                  placeholder="••••••••••••"
+                  type="password"
+                />
+              </div>
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+                <div class="flex flex-col gap-xs">
+                  <label
+                    class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                    >New Password</label
+                  >
+                  <input
+                    class="w-full px-md py-sm border border-outline-variant rounded-lg bg-surface focus:border-primary focus:ring-1 focus:ring-primary font-body-sm text-body-sm outline-none transition-all"
+                    placeholder="••••••••••••"
+                    type="password"
+                  />
+                </div>
+                <div class="flex flex-col gap-xs">
+                  <label
+                    class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                    >Confirm New Password</label
+                  >
+                  <input
+                    class="w-full px-md py-sm border border-outline-variant rounded-lg bg-surface focus:border-primary focus:ring-1 focus:ring-primary font-body-sm text-body-sm outline-none transition-all"
+                    placeholder="••••••••••••"
+                    type="password"
+                  />
+                </div>
+              </div>
+            </div>
+          </section>
+          <!-- Action Buttons -->
+          <div class="flex items-center justify-end gap-md pt-md">
+            <button
+              class="px-xl py-md border border-outline-variant text-on-surface font-body-base text-body-base rounded-lg hover:bg-surface-container-high transition-colors active:scale-95"
+              type="button"
+            >
+              Cancel
+            </button>
+            <button
+              class="px-xl py-md bg-primary text-on-primary font-body-base text-body-base rounded-lg shadow-sm hover:opacity-90 transition-all active:scale-95 flex items-center gap-sm"
+              type="submit"
+            >
+              <span
+                class="material-symbols-outlined text-[20px]"
+                data-icon="check"
+                >check</span
+              >
+              Save Changes
+            </button>
+          </div>
+        </form>
+        <!-- Status Message (Toast style, hidden by default) -->
+        <div
+          class="fixed bottom-lg right-lg bg-inverse-surface text-inverse-on-surface px-lg py-md rounded-xl shadow-xl flex items-center gap-md transform translate-y-24 transition-transform duration-300 pointer-events-none opacity-0"
+          id="toast"
+        >
+          <span
+            class="material-symbols-outlined text-primary-fixed"
+            data-icon="check_circle"
+            >check_circle</span
+          >
+          <span class="font-body-base text-body-base"
+            >Changes saved successfully!</span
+          >
+        </div>
+      </div>
+    </main>
+    <script>
+      // Micro-interaction for form submission
+      const form = document.getElementById("settings-form");
+      const toast = document.getElementById("toast");
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        // Visual feedback for save
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        const originalContent = submitBtn.innerHTML;
+
+        submitBtn.innerHTML =
+          '<span class="material-symbols-outlined animate-spin" data-icon="autorenew">autorenew</span> Saving...';
+        submitBtn.disabled = true;
+
+        setTimeout(() => {
+          submitBtn.innerHTML = originalContent;
+          submitBtn.disabled = false;
+
+          // Show success toast
+          toast.classList.remove("translate-y-24", "opacity-0");
+          toast.classList.add("translate-y-0", "opacity-100");
+
+          setTimeout(() => {
+            toast.classList.add("translate-y-24", "opacity-0");
+            toast.classList.remove("translate-y-0", "opacity-100");
+          }, 3000);
+        }, 800);
+      });
+
+      // Hover effect on the side nav active state (extra flair)
+      const activeNav = document.querySelector(".bg-secondary-container");
+      activeNav.addEventListener("mouseenter", () => {
+        activeNav.classList.add("brightness-110");
+      });
+      activeNav.addEventListener("mouseleave", () => {
+        activeNav.classList.remove("brightness-110");
+      });
+    </script>
+  
+  <script>
+    document.querySelectorAll('nav a').forEach(a => {
+      const t = a.textContent.trim();
+      if (t === 'All Jobs') a.href = 'technician-portal.html';
+      if (t === 'Logout')   a.href = 'log-in.html';
+    });
+  </script>
+  <script src="prototype-flow.js"></script>
+  </body>
+</html>

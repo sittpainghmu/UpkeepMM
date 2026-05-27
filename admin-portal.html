@@ -1,0 +1,932 @@
+<!doctype html>
+
+<html class="light" lang="en" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UpKeep MM - All Jobs</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "secondary-container": "#316bf3",
+              "on-tertiary": "#ffffff",
+              "on-primary": "#ffffff",
+              "on-error-container": "#93000a",
+              "tertiary-fixed-dim": "#ffb59c",
+              "on-tertiary-fixed-variant": "#832700",
+              "surface-container": "#e9edff",
+              "on-secondary": "#ffffff",
+              background: "#f9f9ff",
+              surface: "#f9f9ff",
+              outline: "#747686",
+              "surface-container-high": "#e1e8fd",
+              "on-primary-container": "#cad3ff",
+              "tertiary-fixed": "#ffdbcf",
+              "inverse-primary": "#b7c4ff",
+              "on-tertiary-container": "#ffc9b7",
+              "surface-tint": "#2151da",
+              "outline-variant": "#c4c5d7",
+              "secondary-fixed": "#dbe1ff",
+              "on-background": "#141b2b",
+              "on-surface-variant": "#434655",
+              tertiary: "#7f2500",
+              "on-primary-fixed": "#001551",
+              "surface-container-highest": "#dce2f7",
+              primary: "#0037b0",
+              "primary-container": "#1d4ed8",
+              "error-container": "#ffdad6",
+              "on-error": "#ffffff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "surface-container-low": "#f1f3ff",
+              "primary-fixed": "#dce1ff",
+              "tertiary-container": "#a73400",
+              "primary-fixed-dim": "#b7c4ff",
+              "on-surface": "#141b2b",
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed": "#390c00",
+              "on-primary-fixed-variant": "#0039b5",
+              "surface-variant": "#dce2f7",
+              "on-secondary-fixed": "#00174b",
+              "surface-bright": "#f9f9ff",
+              "inverse-on-surface": "#edf0ff",
+              error: "#ba1a1a",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-secondary-container": "#fefcff",
+              secondary: "#0051d5",
+              "inverse-surface": "#293040",
+              "surface-dim": "#d3daef",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              xs: "4px",
+              "margin-mobile": "16px",
+              "margin-desktop": "32px",
+              md: "16px",
+              sm: "8px",
+              base: "4px",
+              xl: "32px",
+              lg: "24px",
+              gutter: "24px",
+            },
+            fontFamily: {
+              "display-lg": ["Inter"],
+              "body-base": ["Inter"],
+              "label-uppercase": ["Inter"],
+              "data-tabular": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-sm": ["Inter"],
+              "title-sm": ["Inter"],
+            },
+            fontSize: {
+              "display-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-base": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "label-uppercase": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "data-tabular": [
+                "14px",
+                { lineHeight: "20px", fontWeight: "500" },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "title-sm": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: #e5e7eb;
+        border-radius: 10px;
+      }
+      .glass-header {
+        backdrop-filter: blur(8px);
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-surface">
+    <!-- Sidebar Navigation -->
+    <aside
+      class="fixed left-0 top-0 h-full w-[260px] bg-surface-container-lowest border-r border-outline-variant flex flex-col py-6 z-50"
+    >
+      <div class="px-6 mb-8">
+        <h1 class="font-headline-md text-headline-md font-bold text-primary">
+          UpKeep MM
+        </h1>
+        <p class="text-body-sm text-on-surface-variant">Admin Console</p>
+      </div>
+      <nav class="flex-1 space-y-1">
+        <a
+          class="flex items-center gap-md px-lg py-sm text-primary font-semibold border-l-[3px] border-primary bg-surface-container-low transition-colors duration-200"
+          href="admin-portal.html"
+        >
+          <span class="material-symbols-outlined">assignment</span>
+          <span class="font-body-sm text-body-sm">All Jobs</span>
+        </a>
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="admin-request.html"
+        >
+          <span class="material-symbols-outlined">add_task</span>
+          <span class="font-body-sm text-body-sm">Submit Job</span>
+        </a>
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="admin-settings.html"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span class="font-body-sm text-body-sm">Settings</span>
+        </a>
+      </nav>
+      <nav class="mb-4"></nav>
+      <div class="px-6 pt-4 mt-auto border-t border-outline-variant">
+        <button
+          onclick="location.href='log-in.html'"
+          class="flex items-center gap-3 w-full px-4 py-3 text-on-surface-variant hover:bg-surface-container-low transition-colors rounded-lg font-body-sm text-body-sm"
+        >
+          <span class="material-symbols-outlined" data-icon="logout"
+            >logout</span
+          >
+          Logout
+        </button>
+        <div
+          class="flex items-center gap-3 mt-4 p-2 bg-surface-container-low rounded-xl"
+        >
+          <img
+            alt="Admin Avatar"
+            class="w-10 h-10 rounded-full object-cover"
+            data-alt="A professional portrait of a senior operations manager in a high-tech corporate office setting. He is wearing a crisp navy blue suit and a soft smile, conveying confidence and authority. The background is a blurred modern office with glass walls and warm, soft lighting that creates a bright, professional atmosphere."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Q1N1iscZK6feuJuBX9sH_5ByCfSiwM19Ek5EJh8NUXkKX2SyeYhbVLjLqOxFMflSF61bDbpiA9fgYUKGK6FWM2Ow6CJmfTGKviW5Vn2LIVCELYVGKOTVGPYcxN8S26qp-HvPox-nbxyOfMU1l2C2Mb1Az_Xbb4frk8KnEVGxY2A8N12EClM_S9v6IwcNRmwWlbP8Qz7HZ0l-lw0tMEkJdYLJApXDsU3AFdrG9hFp9LHmQBxHJiIdn1tWhfcoRE9LyhienKSSQso"
+          />
+          <div>
+            <p class="font-title-sm text-body-sm font-bold">Ko Aung Min</p>
+            <p
+              class="text-[10px] text-on-surface-variant uppercase tracking-wider"
+            >
+              Super Admin
+            </p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Main Content Canvas -->
+    <main class="ml-[260px] min-h-screen">
+      <!-- Top Navigation Bar -->
+      <header
+        class="sticky top-0 z-40 h-16 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center px-margin-desktop"
+      >
+        <div class="flex items-center gap-4 flex-1">
+          <div class="relative w-full max-w-md">
+            <span
+              class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-[20px]"
+              data-icon="search"
+              >search</span
+            >
+            <input
+              class="w-full pl-10 pr-4 py-2 bg-surface-container-low border-none rounded-full text-body-sm focus:ring-2 focus:ring-primary transition-all outline-none"
+              placeholder="Search by Job ID, user, or keyword..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center gap-6">
+          <button
+            class="relative p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors"
+          >
+            <span class="material-symbols-outlined" data-icon="notifications"
+              >notifications</span
+            >
+            <span
+              class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"
+            ></span>
+          </button>
+          <button
+            class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors"
+          >
+            <span class="material-symbols-outlined" data-icon="help_outline"
+              >help_outline</span
+            >
+          </button>
+        </div>
+      </header>
+      <!-- View Content -->
+      <div class="p-margin-desktop">
+        <!-- Page Header & Filters -->
+        <div class="flex justify-between items-end mb-8">
+          <div>
+            <h2 class="font-headline-md text-headline-md text-on-background">
+              Job Management
+            </h2>
+            <p class="text-body-base text-on-surface-variant">
+              Review and assign maintenance tasks across all facilities.
+            </p>
+          </div>
+          <div class="flex gap-3">
+            <div
+              class="bg-white border border-outline-variant rounded-lg flex items-center p-1"
+            >
+              <button
+                class="px-4 py-1.5 bg-surface-container-high text-primary font-medium rounded-md text-body-sm"
+              >
+                All Jobs
+              </button>
+              <button
+                class="px-4 py-1.5 text-on-surface-variant hover:bg-surface-container-low rounded-md text-body-sm transition-colors"
+              >
+                Unassigned
+              </button>
+            </div>
+            <button
+              class="flex items-center gap-2 px-4 py-2 border border-outline-variant rounded-lg hover:bg-surface-container-low transition-colors text-body-sm font-medium"
+            >
+              <span
+                class="material-symbols-outlined text-[18px]"
+                data-icon="filter_list"
+                >filter_list</span
+              >
+              Filters
+            </button>
+          </div>
+        </div>
+        <!-- Stats Overview - Subtle Bento Layer -->
+        <!-- Data Table Container -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+          <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-amber-50 flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-amber-600"
+                >pending_actions</span
+              >
+            </div>
+            <div>
+              <p class="text-label-uppercase text-on-surface-variant">
+                Total Pending
+              </p>
+              <p class="text-display-lg font-bold">24</p>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-indigo-50 flex items-center justify-center"
+            ></div>
+            <div>
+              <p class="text-label-uppercase text-on-surface-variant">
+                In Progress
+              </p>
+              <p class="text-display-lg font-bold">18</p>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-md flex items-center gap-md"
+          >
+            <div
+              class="w-12 h-12 rounded-full bg-green-50 flex items-center justify-center"
+            >
+              <span class="material-symbols-outlined text-green-600"
+                >task_alt</span
+              >
+            </div>
+            <div>
+              <p class="text-label-uppercase text-on-surface-variant">
+                Completed Today
+              </p>
+              <p class="text-display-lg font-bold">32</p>
+            </div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg mb-xl">
+          <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg"
+          >
+            <h3 class="font-title-sm mb-md">Workload Overview</h3>
+            <div class="space-y-md">
+              <div class="space-y-xs">
+                <div class="flex justify-between text-body-sm font-medium">
+                  <span>Ko Kyaw Zin</span><span>7 Jobs</span>
+                </div>
+                <div class="w-full bg-surface-container-low rounded-full h-1.5">
+                  <div
+                    class="bg-primary h-1.5 rounded-full"
+                    style="width: 70%"
+                  ></div>
+                </div>
+              </div>
+              <div class="space-y-xs">
+                <div class="flex justify-between text-body-sm font-medium">
+                  <span>Ko Maung Maung</span><span>3 Jobs</span>
+                </div>
+                <div class="w-full bg-surface-container-low rounded-full h-1.5">
+                  <div
+                    class="bg-primary h-1.5 rounded-full"
+                    style="width: 30%"
+                  ></div>
+                </div>
+              </div>
+              <div class="space-y-xs">
+                <div class="flex justify-between text-body-sm font-medium">
+                  <span>Ma Thin Thin</span><span>5 Jobs</span>
+                </div>
+                <div class="w-full bg-surface-container-low rounded-full h-1.5">
+                  <div
+                    class="bg-primary h-1.5 rounded-full"
+                    style="width: 50%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg"
+          >
+            <h3 class="font-title-sm mb-md">Distribution</h3>
+            <div class="space-y-md">
+              <div class="flex items-center gap-md">
+                <div class="flex-1">
+                  <div class="flex justify-between text-body-sm mb-1">
+                    <span>HVAC</span><span>42% (42)</span>
+                  </div>
+                  <div
+                    class="w-full bg-surface-container-low rounded-full h-1.5"
+                  >
+                    <div
+                      class="bg-secondary h-1.5 rounded-full"
+                      style="width: 42%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-md">
+                <div class="flex-1">
+                  <div class="flex justify-between text-body-sm mb-1">
+                    <span>PLUMBING</span><span>28% (28)</span>
+                  </div>
+                  <div
+                    class="w-full bg-surface-container-low rounded-full h-1.5"
+                  >
+                    <div
+                      class="bg-secondary h-1.5 rounded-full"
+                      style="width: 28%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-md">
+                <div class="flex-1">
+                  <div class="flex justify-between text-body-sm mb-1">
+                    <span>ELECTRICAL</span><span>15% (15)</span>
+                  </div>
+                  <div
+                    class="w-full bg-surface-container-low rounded-full h-1.5"
+                  >
+                    <div
+                      class="bg-secondary h-1.5 rounded-full"
+                      style="width: 15%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+              <div class="flex items-center gap-md">
+                <div class="flex-1">
+                  <div class="flex justify-between text-body-sm mb-1">
+                    <span>OTHERS</span><span>15% (15)</span>
+                  </div>
+                  <div
+                    class="w-full bg-surface-container-low rounded-full h-1.5"
+                  >
+                    <div
+                      class="bg-secondary h-1.5 rounded-full"
+                      style="width: 15%"
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="bg-white border border-outline-variant rounded-xl overflow-hidden"
+        >
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse">
+              <thead class="bg-surface-bright border-b border-outline-variant">
+                <tr>
+                  <th
+                    class="px-6 py-4 text-label-uppercase text-on-surface-variant font-semibold"
+                  >
+                    Job ID
+                  </th>
+                  <th
+                    class="px-6 py-4 text-label-uppercase text-on-surface-variant font-semibold"
+                  >
+                    Task Details
+                  </th>
+                  <th
+                    class="px-6 py-4 text-label-uppercase text-on-surface-variant font-semibold"
+                  >
+                    Category
+                  </th>
+                  <th
+                    class="px-6 py-4 text-label-uppercase text-on-surface-variant font-semibold"
+                  >
+                    Priority
+                  </th>
+                  <th
+                    class="px-6 py-4 text-label-uppercase text-on-surface-variant font-semibold"
+                  >
+                    Status
+                  </th>
+                  <th
+                    class="px-6 py-4 text-label-uppercase text-on-surface-variant font-semibold"
+                  >
+                    Assignee
+                  </th>
+                  <th
+                    class="px-6 py-4 text-label-uppercase text-on-surface-variant font-semibold text-right"
+                  >
+                    Actions
+                  </th>
+                </tr>
+              </thead>
+              <tbody class="divide-y divide-surface-container">
+                <!-- Job Row 1 (Unassigned & Urgent) -->
+                <tr
+                  class="hover:bg-surface-container-low transition-colors group"
+                >
+                  <td
+                    class="px-6 py-4 font-data-tabular text-on-background font-medium"
+                  >
+                    #JO-8821
+                  </td>
+                  <td class="px-6 py-4">
+                    <p class="text-body-sm font-semibold text-on-background">
+                      Sink water pressure very low
+                    </p>
+                    <p class="text-[12px] text-on-surface-variant">
+                      Botahtaung Tower • Level 4 • Room 402 • 2h ago
+                    </p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="text-body-sm text-on-surface-variant flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[18px]"
+                        data-icon="plumbing"
+                        >plumbing</span
+                      >
+                      PLUMBING
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-red-100 text-red-700"
+                    >
+                      Urgent
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600"
+                    >
+                      Unassigned
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <select
+                      class="bg-white border border-outline-variant text-body-sm rounded-lg px-2 py-1 outline-none focus:ring-1 focus:ring-primary w-full max-w-[140px]"
+                    >
+                      <option>Select Tech...</option>
+                      <option>Ko Min Thu</option>
+                      <option>Ma Thandar Hlaing</option>
+                      <option>Ko Nyi Nyi</option>
+                    </select>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="bg-primary text-white text-[12px] px-3 py-1.5 rounded-md font-bold hover:bg-primary-container transition-colors shadow-sm"
+                    >
+                      Assign
+                    </button>
+                  </td>
+                </tr>
+                <!-- Job Row 2 (Assigned) -->
+                <tr class="hover:bg-surface-container-low transition-colors">
+                  <td
+                    class="px-6 py-4 font-data-tabular text-on-background font-medium"
+                  >
+                    #JO-8819
+                  </td>
+                  <td class="px-6 py-4">
+                    <p class="text-body-sm font-semibold text-on-background">
+                      AC unit making loud grinding noise
+                    </p>
+                    <p class="text-[12px] text-on-surface-variant">
+                      Junction City • Main Lobby • 4h ago
+                    </p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="text-body-sm text-on-surface-variant flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[18px]"
+                        data-icon="ac_unit"
+                        >ac_unit</span
+                      >
+                      HVAC
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-700"
+                    >
+                      Normal
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-700"
+                    >
+                      Assigned
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-2">
+                      <img
+                        alt="Tech Avatar"
+                        class="w-6 h-6 rounded-full object-cover"
+                        data-alt="A close-up headshot of a friendly maintenance technician in a clean, professional uniform. He has a warm expression and short hair. The lighting is bright and natural, set against a clean industrial background that feels modern and trustworthy."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNj3i6Ah-0zwROKvB1XsTCRsaUaerOdmRUkDg102F1Na-uTXtg46CcyWOKsHVG0NoyE0zGbqacgh82vw5Rf_fnx3vc8A-6a9aJATbKwJiskyU9u1EWfONan6_yEQtZgPbrGPYzpaNtHoiR17jJdoo1oNEY2AEtYRb4bEb-PYlMrmX0z4linuY0UYuQ6tSKaPFnO2j5KdHuj-ygLxhMVuiOPxcHb8G8o1ZkZS-vxhwOoW_4TeTI_pPgWSKNblPqm3nhg2MBsEQ4_nQ"
+                      />
+                      <span class="text-body-sm font-medium">Ma Thandar Hlaing</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="p-2 text-on-surface-variant hover:text-primary transition-colors"
+                    >
+                      <span
+                        class="material-symbols-outlined"
+                        data-icon="more_vert"
+                        >more_vert</span
+                      >
+                    </button>
+                  </td>
+                </tr>
+                <!-- Job Row 3 (In Progress) -->
+                <tr class="hover:bg-surface-container-low transition-colors">
+                  <td
+                    class="px-6 py-4 font-data-tabular text-on-background font-medium"
+                  >
+                    #JO-8815
+                  </td>
+                  <td class="px-6 py-4">
+                    <p class="text-body-sm font-semibold text-on-background">
+                      Elevator 3 floor alignment check
+                    </p>
+                    <p class="text-[12px] text-on-surface-variant">
+                      Sule Square • Service Lift Bank • 8h ago
+                    </p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="text-body-sm text-on-surface-variant flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[18px]"
+                        data-icon="category"
+                        >category</span
+                      >
+                      OTHERS
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-700"
+                    >
+                      Normal
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-indigo-100 text-indigo-700"
+                    >
+                      In Progress
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <div class="flex items-center gap-2">
+                      <img
+                        alt="Tech Avatar"
+                        class="w-6 h-6 rounded-full object-cover"
+                        data-alt="A portrait of a male maintenance professional wearing a dark grey work polo. He looks focused and competent, looking slightly off-camera. The lighting is crisp and cool, suggesting an early morning start in a modern commercial building corridor."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPdoURxLPs2usieFPBqfoyCiJutEswuLEBYtcTEzuPIlnR9Ox5XpFQkZHtol77gzZgS9taH2JEOi5_9zceCB23I1NoA8FwaSbJRj2o7yBq3HpIOBIMVv4gP-lIEjcn2EIOK3Uc6Kfja1o6fdN-pLPS4zdQ7oUihQeOy9qX0sOWra-ywV6woLjeBvKYwQhrLjqtj8Jr0AFeuNcusEYOunl7KJiYXiQGbsKSP77aKqPUHfsGB_0aD3UdnCj6whqNs9tK5wZkzcoYTUo"
+                      />
+                      <span class="text-body-sm font-medium">Ko Min Thu</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="p-2 text-on-surface-variant hover:text-primary transition-colors"
+                    >
+                      <span
+                        class="material-symbols-outlined"
+                        data-icon="more_vert"
+                        >more_vert</span
+                      >
+                    </button>
+                  </td>
+                </tr>
+                <!-- Job Row 4 (Unassigned) -->
+                <tr
+                  class="hover:bg-surface-container-low transition-colors group"
+                >
+                  <td
+                    class="px-6 py-4 font-data-tabular text-on-background font-medium"
+                  >
+                    #JO-8812
+                  </td>
+                  <td class="px-6 py-4">
+                    <p class="text-body-sm font-semibold text-on-background">
+                      External gate sensor malfunctioning
+                    </p>
+                    <p class="text-[12px] text-on-surface-variant">
+                      Thilawa Thilawa Gate 4 • Compound Fence • 1d ago
+                    </p>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="text-body-sm text-on-surface-variant flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[18px]"
+                        data-icon="bolt"
+                        >bolt</span
+                      >
+                      ELECTRICAL
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700"
+                    >
+                      Low
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600"
+                    >
+                      Unassigned
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <select
+                      class="bg-white border border-outline-variant text-body-sm rounded-lg px-2 py-1 outline-none focus:ring-1 focus:ring-primary w-full max-w-[140px]"
+                    >
+                      <option>Select Tech...</option>
+                      <option>Ko Min Thu</option>
+                      <option>Ma Thandar Hlaing</option>
+                      <option>Ko Nyi Nyi</option>
+                    </select>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="bg-primary text-white text-[12px] px-3 py-1.5 rounded-md font-bold hover:bg-primary-container transition-colors shadow-sm"
+                    >
+                      Assign
+                    </button>
+                  </td>
+                </tr>
+                <!-- Job Row 5 (Completed) -->
+                <tr
+                  class="hover:bg-surface-container-low transition-colors bg-surface-container-lowest/50"
+                >
+                  <td
+                    class="px-6 py-4 font-data-tabular text-on-background/60 font-medium"
+                  >
+                    #JO-8809
+                  </td>
+                  <td class="px-6 py-4 opacity-60">
+                    <p class="text-body-sm font-semibold text-on-background">
+                      Replace light fixtures in Staff Canteen
+                    </p>
+                    <p class="text-[12px] text-on-surface-variant">
+                      Level 1 • Staff Dining Area • Completed 2h ago
+                    </p>
+                  </td>
+                  <td class="px-6 py-4 opacity-60">
+                    <span
+                      class="text-body-sm text-on-surface-variant flex items-center gap-2"
+                    >
+                      <span
+                        class="material-symbols-outlined text-[18px]"
+                        data-icon="lightbulb"
+                        >lightbulb</span
+                      >
+                      ELECTRICAL
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 opacity-60">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-gray-100 text-gray-700"
+                    >
+                      Low
+                    </span>
+                  </td>
+                  <td class="px-6 py-4">
+                    <span
+                      class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-green-50 text-green-700 border border-green-200"
+                    >
+                      Completed
+                    </span>
+                  </td>
+                  <td class="px-6 py-4 opacity-60">
+                    <div class="flex items-center gap-2">
+                      <img
+                        alt="Tech Avatar"
+                        class="w-6 h-6 rounded-full object-cover"
+                        data-alt="A portrait of a male technician with glasses and a friendly, intellectual vibe. He is wearing a blue company uniform shirt. The background is a brightly lit, clean hallway of a modern commercial office building. The style is crisp and professional."
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAL9aAEAaUa0fR1BW5QD9QUQ1YUAPK_WVz422NG5UvJF2A6Xeq11J47JW5ohCbSNVP-yZH7wnVJ7DZS7fPHNwjoPTx2VwGbF2TITCy4QD1Vi_ZAOcDMIlOekmmltDi8vmEvmgR7H0WdmLnDVYri2ZfSdm6jZaLg9sUl3l_pvC49b4t4wovYpjUf8OiB_CHSJs9-HlY5xneLlph4qxWuaQ5QwzewJqxnnfZrp6vXRwTOpFPHWlHhsrdGZJPdfRUlpIVQfaUAIXP8vg"
+                      />
+                      <span class="text-body-sm font-medium">Ko Nyi Nyi</span>
+                    </div>
+                  </td>
+                  <td class="px-6 py-4 text-right">
+                    <button
+                      class="p-2 text-on-surface-variant hover:text-primary transition-colors"
+                    >
+                      <span
+                        class="material-symbols-outlined"
+                        data-icon="visibility"
+                        >visibility</span
+                      >
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Pagination Footer -->
+          <div
+            class="px-6 py-4 border-t border-outline-variant flex justify-between items-center bg-surface-bright"
+          >
+            <p class="text-body-sm text-on-surface-variant">
+              Showing 1 to 5 of 1,284 results
+            </p>
+            <div class="flex gap-2">
+              <button
+                class="px-4 py-2 border border-outline-variant rounded-lg text-body-sm font-medium hover:bg-surface-container-low transition-colors disabled:opacity-50"
+                disabled=""
+              >
+                Previous
+              </button>
+              <button
+                class="px-4 py-2 border border-outline-variant rounded-lg text-body-sm font-medium hover:bg-surface-container-low transition-colors"
+              >
+                Next
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Contextual Toast Notification (Mock Interaction) -->
+    <div
+      class="fixed bottom-8 right-8 bg-inverse-surface text-inverse-on-surface px-6 py-4 rounded-xl shadow-xl flex items-center gap-3 transform translate-y-24 transition-transform duration-300 z-[60]"
+      id="assignmentToast"
+    >
+      <span
+        class="material-symbols-outlined text-green-400"
+        data-icon="check_circle"
+        style="font-variation-settings: &quot;FILL&quot; 1"
+        >check_circle</span
+      >
+      <div>
+        <p class="font-bold text-body-sm">Job Assigned Successfully</p>
+        <p class="text-[12px] opacity-80">
+          Technician Ko Min Thu has been notified.
+        </p>
+      </div>
+      <button
+        class="ml-4 opacity-60 hover:opacity-100 transition-opacity"
+        onclick="hideToast()"
+      >
+        <span class="material-symbols-outlined text-[20px]" data-icon="close"
+          >close</span
+        >
+      </button>
+    </div>
+    <script>
+      // Proper way to handle the mock buttons
+      document
+        .querySelectorAll(".bg-primary.text-white.text-\\[12px\\]")
+        .forEach((btn) => {
+          if (btn.innerText === "Assign") {
+            btn.addEventListener("click", () => {
+              const toast = document.getElementById("assignmentToast");
+              toast.classList.remove("translate-y-24");
+              setTimeout(() => {
+                hideToast();
+              }, 4000);
+            });
+          }
+        });
+
+      function hideToast() {
+        const toast = document.getElementById("assignmentToast");
+        toast.classList.add("translate-y-24");
+      }
+
+      // Active state visual for table rows
+      document.querySelectorAll("tbody tr").forEach((row) => {
+        row.addEventListener("click", () => {
+          document
+            .querySelectorAll("tbody tr")
+            .forEach((r) => r.classList.remove("bg-surface-container-low"));
+          row.classList.add("bg-surface-container-low");
+        });
+      });
+    </script>
+  
+  <script>
+    // Nav links
+    document.querySelectorAll('nav a').forEach(a => {
+      const t = a.textContent.trim();
+      if (t === 'Submit Job') a.href = 'admin-request.html';
+      if (t === 'Settings')   a.href = 'admin-settings.html';
+      if (t === 'Logout')     a.href = 'log-in.html';
+    });
+    // Job row chevrons → detail
+    document.querySelectorAll('button span.material-symbols-outlined').forEach(icon => {
+      if (icon.textContent.trim() === 'chevron_right') {
+        icon.closest('button').addEventListener('click', () => location.href = 'admin-job-detail.html');
+      }
+    });
+  </script>
+  <script src="prototype-flow.js"></script>
+  </body>
+</html>

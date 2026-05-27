@@ -1,0 +1,700 @@
+<!doctype html>
+
+<html class="light" lang="en" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UpKeep MM - Admin Job Detail</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container": "#e9edff",
+              tertiary: "#7f2500",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-container": "#cad3ff",
+              "outline-variant": "#c4c5d7",
+              "inverse-surface": "#293040",
+              "error-container": "#ffdad6",
+              "secondary-container": "#316bf3",
+              secondary: "#0051d5",
+              "on-surface-variant": "#434655",
+              "secondary-fixed-dim": "#b4c5ff",
+              "surface-container-low": "#f1f3ff",
+              error: "#ba1a1a",
+              "surface-tint": "#2151da",
+              background: "#f9f9ff",
+              "on-primary-fixed-variant": "#0039b5",
+              "on-secondary-container": "#fefcff",
+              "on-tertiary-fixed-variant": "#832700",
+              "tertiary-fixed": "#ffdbcf",
+              surface: "#f9f9ff",
+              "inverse-on-surface": "#edf0ff",
+              "secondary-fixed": "#dbe1ff",
+              "on-background": "#141b2b",
+              "on-secondary": "#ffffff",
+              "surface-dim": "#d3daef",
+              "tertiary-container": "#a73400",
+              "tertiary-fixed-dim": "#ffb59c",
+              "on-surface": "#141b2b",
+              "on-primary-fixed": "#001551",
+              "primary-container": "#1d4ed8",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#003ea8",
+              primary: "#0037b0",
+              outline: "#747686",
+              "on-secondary-fixed": "#00174b",
+              "on-error": "#ffffff",
+              "on-tertiary-container": "#ffc9b7",
+              "surface-container-highest": "#dce2f7",
+              "surface-container-high": "#e1e8fd",
+              "primary-fixed-dim": "#b7c4ff",
+              "surface-variant": "#dce2f7",
+              "on-primary": "#ffffff",
+              "on-tertiary": "#ffffff",
+              "inverse-primary": "#b7c4ff",
+              "on-tertiary-fixed": "#390c00",
+              "surface-bright": "#f9f9ff",
+              "primary-fixed": "#dce1ff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              gutter: "24px",
+              "margin-mobile": "16px",
+              xl: "32px",
+              xs: "4px",
+              sm: "8px",
+              "margin-desktop": "32px",
+              md: "16px",
+              lg: "24px",
+              base: "4px",
+            },
+            fontFamily: {
+              "title-sm": ["Inter"],
+              "headline-md": ["Inter"],
+              "label-uppercase": ["Inter"],
+              "body-base": ["Inter"],
+              "display-lg": ["Inter"],
+              "body-sm": ["Inter"],
+              "data-tabular": ["Inter"],
+            },
+            fontSize: {
+              "title-sm": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "label-uppercase": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-base": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "display-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "data-tabular": [
+                "14px",
+                { lineHeight: "20px", fontWeight: "500" },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background-color: #f9f9ff;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .timeline-line::before {
+        content: "";
+        position: absolute;
+        left: 5px;
+        top: 24px;
+        bottom: 0;
+        width: 2px;
+        background-color: #e5e7eb;
+      }
+      .timeline-item:last-child .timeline-line::before {
+        display: none;
+      }
+    </style>
+  </head>
+  <body class="text-on-surface">
+    <!-- SideNavBar (Mobile hidden, Desktop fixed) -->
+    <aside
+      class="fixed left-0 top-0 h-screen w-[260px] z-50 bg-surface-container-low border-r border-outline-variant flex flex-col py-lg hidden md:flex"
+    >
+      <div class="px-gutter mb-xl">
+        <h1 class="font-headline-md text-headline-md font-black text-primary">
+          UpKeep MM
+        </h1>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">Admin Console</p>
+      </div>
+            <nav class="flex-1 space-y-1">
+        <a
+          class="flex items-center gap-md px-lg py-sm text-primary font-semibold border-l-[3px] border-primary bg-surface-container-low transition-colors duration-200"
+          href="admin-portal.html"
+        >
+          <span class="material-symbols-outlined">assignment</span>
+          <span class="font-body-sm text-body-sm">All Jobs</span>
+        </a>
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="admin-request.html"
+        >
+          <span class="material-symbols-outlined">add_task</span>
+          <span class="font-body-sm text-body-sm">Submit Job</span>
+        </a>
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="admin-settings.html"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span class="font-body-sm text-body-sm">Settings</span>
+        </a>
+      </nav>
+      <nav class="mb-4">
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="log-in.html"
+        >
+          <span class="material-symbols-outlined">logout</span>
+          <span class="font-body-sm text-body-sm">Logout</span>
+        </a>
+      </nav>
+    </aside>
+    <!-- Main Content Area -->
+    <div class="md:ml-[260px] flex flex-col min-h-screen">
+      <!-- TopAppBar -->
+      <header
+        class="w-full sticky top-0 z-40 bg-surface-container-lowest border-b border-outline-variant flex justify-between items-center h-16 px-gutter"
+      >
+        <div class="flex items-center space-x-md">
+          <button
+            class="md:hidden p-sm hover:bg-surface-container-low rounded-lg transition-colors"
+          >
+            <span class="material-symbols-outlined">menu</span>
+          </button>
+          <div
+            class="flex items-center bg-surface-container-low px-md py-xs rounded-full border border-outline-variant/30"
+          >
+            <span class="material-symbols-outlined text-outline text-[20px]"
+              >search</span
+            >
+            <input
+              class="bg-transparent border-none focus:ring-0 text-body-sm w-48 lg:w-64"
+              placeholder="Search orders..."
+              type="text"
+            />
+          </div>
+        </div>
+        <div class="flex items-center space-x-md">
+          <button
+            class="p-sm text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors relative"
+          >
+            <span class="material-symbols-outlined">notifications</span>
+            <span
+              class="absolute top-2 right-2 w-2 h-2 bg-error rounded-full"
+            ></span>
+          </button>
+          <button
+            class="p-sm text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors"
+          >
+            <span class="material-symbols-outlined">account_circle</span>
+          </button>
+        </div>
+      </header>
+      <!-- Main View Canvas -->
+      <main class="p-gutter max-w-7xl mx-auto w-full flex-1">
+        <!-- Header Navigation & Action Bar -->
+        <div
+          class="flex flex-col md:flex-row md:items-center justify-between mb-lg gap-md"
+        >
+          <div class="flex items-center">
+            <button
+              class="mr-md p-xs hover:bg-surface-container-high rounded-full transition-colors text-on-surface-variant"
+            >
+              <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <div>
+              <div class="flex items-center gap-sm flex-wrap">
+                <span
+                  class="font-label-uppercase text-label-uppercase text-outline-variant"
+                  >JOB #JO-8821</span
+                >
+                <div class="flex gap-xs">
+                  <span
+                    class="px-sm py-[2px] bg-blue-50 text-blue-700 text-[11px] font-bold rounded-full border border-blue-200 flex items-center gap-xs"
+                    ><span class="w-2 h-2 rounded-full bg-blue-500 inline-block"></span>IN PROGRESS</span
+                  >
+                  <span
+                    class="px-sm py-[2px] bg-error-container/20 text-error text-[11px] font-bold rounded-full border border-error/20"
+                    >URGENT</span
+                  >
+                </div>
+              </div>
+              <h2
+                class="font-headline-md text-headline-md text-on-surface mt-xs leading-tight"
+              >
+                Sink water pressure very low
+              </h2>
+            </div>
+          </div>
+          <div class="flex items-center gap-sm">
+            <button
+              class="flex items-center gap-sm px-md py-sm bg-surface-container-low border border-outline-variant rounded-lg font-body-sm text-body-sm text-on-surface-variant hover:border-primary hover:text-primary transition-all"
+            >
+              <span class="material-symbols-outlined text-[18px]">picture_as_pdf</span>
+              Export PDF
+            </button>
+          </div>
+        </div>
+        <!-- Dashboard Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-lg items-start">
+          <!-- Left Column (Primary Details) -->
+          <div class="lg:col-span-8 space-y-lg">
+            <!-- Job Details Card -->
+            <div
+              class="bg-white border border-outline-variant rounded-xl p-lg shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+            >
+              <h3 class="font-title-sm text-title-sm mb-lg flex items-center">
+                <span class="material-symbols-outlined mr-sm text-primary"
+                  >description</span
+                >
+                Job Description
+              </h3>
+              <p
+                class="text-on-surface-variant font-body-base text-body-base leading-relaxed mb-xl"
+              >
+                Tenants on Level 4 of Botahtaung Office Tower reporting significantly
+                reduced water pressure in the shared pantry sink. Initial
+                inspection suggests a possible clog in the aerator or a main
+                valve issue. Needs urgent attention as this is a high-traffic
+                area.
+              </p>
+              <div
+                class="grid grid-cols-1 md:grid-cols-3 gap-lg pt-lg border-t border-outline-variant/30"
+              >
+                <div>
+                  <p
+                    class="font-label-uppercase text-label-uppercase text-outline mb-xs"
+                  >
+                    Location
+                  </p>
+                  <p
+                    class="font-body-sm text-body-sm font-semibold flex items-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[18px] mr-xs text-outline"
+                      >location_on</span
+                    >
+                    Botahtaung Office Tower, Level 4, Room 402
+                  </p>
+                </div>
+                <div>
+                  <p
+                    class="font-label-uppercase text-label-uppercase text-outline mb-xs"
+                  >
+                    Category
+                  </p>
+                  <p
+                    class="font-body-sm text-body-sm font-semibold flex items-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[18px] mr-xs text-outline"
+                      >build</span
+                    >
+                    PLUMBING → Low Water Pressure
+                  </p>
+                </div>
+                <div>
+                  <p
+                    class="font-label-uppercase text-label-uppercase text-outline mb-xs"
+                  >
+                    Requester
+                  </p>
+                  <p
+                    class="font-body-sm text-body-sm font-semibold flex items-center"
+                  >
+                    <span
+                      class="material-symbols-outlined text-[18px] mr-xs text-outline"
+                      >person</span
+                    >
+                    Ko Aung Min
+                    <span class="ml-xs text-[12px] font-normal text-outline"
+                      >(2h ago)</span
+                    >
+                  </p>
+                </div>
+              </div>
+            </div>
+            <!-- Activity Log Card -->
+            <div
+              class="bg-white border border-outline-variant rounded-xl p-lg shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+            >
+              <h3 class="font-title-sm text-title-sm mb-lg flex items-center">
+                <span class="material-symbols-outlined mr-sm text-primary"
+                  >history</span
+                >
+                Activity Log
+              </h3>
+              <div class="flex flex-col gap-0">
+                <!-- Step 1: Requested — done -->
+                <div class="flex gap-lg pb-lg relative">
+                  <div class="absolute left-[11px] top-[24px] bottom-0 w-[2px] bg-primary/30"></div>
+                  <div class="relative z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-[14px] text-white">check</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <p class="font-body-sm font-semibold text-on-surface">Requested</p>
+                    <p class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60 mt-xs">May 12, 2024 · 09:30 AM</p>
+                  </div>
+                </div>
+                <!-- Step 2: Assigned — done -->
+                <div class="flex gap-lg pb-lg relative">
+                  <div class="absolute left-[11px] top-[24px] bottom-0 w-[2px] bg-primary/30"></div>
+                  <div class="relative z-10 w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                    <span class="material-symbols-outlined text-[14px] text-white">check</span>
+                  </div>
+                  <div class="flex flex-col">
+                    <p class="font-body-sm font-semibold text-on-surface">Assigned</p>
+                    <p class="font-body-sm text-on-surface-variant">Ko Kyaw Zin assigned by Admin</p>
+                    <p class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60 mt-xs">May 12, 2024 · 11:15 AM</p>
+                  </div>
+                </div>
+                <!-- Step 3: In Progress — current (pulsing) -->
+                <div class="flex gap-lg pb-lg relative">
+                  <div class="absolute left-[11px] top-[24px] bottom-0 w-[2px] bg-outline-variant"></div>
+                  <div class="relative z-10 w-6 h-6 rounded-full border-2 border-primary bg-white flex items-center justify-center flex-shrink-0">
+                    <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                  </div>
+                  <div class="flex flex-col">
+                    <p class="font-body-sm font-semibold text-primary">In Progress</p>
+                    <p class="font-body-sm text-on-surface-variant">Technician currently on-site</p>
+                    <p class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-60 mt-xs">May 13, 2024 · 08:45 AM</p>
+                  </div>
+                </div>
+                <!-- Step 4: Completed — pending -->
+                <div class="flex gap-lg">
+                  <div class="relative z-10 w-6 h-6 rounded-full border-2 border-outline-variant bg-white flex items-center justify-center flex-shrink-0"></div>
+                  <div class="flex flex-col">
+                    <p class="font-body-sm font-semibold text-on-surface-variant">Completed</p>
+                    <p class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-40 mt-xs">Pending</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Evidence / Photos Section -->
+            <div
+              class="bg-white border border-outline-variant rounded-xl p-lg shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+            >
+              <div class="flex justify-between items-center mb-lg">
+                <h3 class="font-title-sm text-title-sm flex items-center">
+                  <span class="material-symbols-outlined mr-sm text-primary"
+                    >photo_library</span
+                  >
+                  Pre-job Photos
+                </h3>
+                <button
+                  class="text-primary text-body-sm font-semibold hover:underline"
+                >
+                  View All
+                </button>
+              </div>
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-md">
+                <div
+                  class="group relative aspect-square rounded-lg overflow-hidden border border-outline-variant cursor-pointer"
+                >
+                  <img
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    data-alt="A detailed close-up shot of a modern kitchen sink faucet with low water flow in a minimalist, bright office environment. The lighting is soft and neutral, highlighting the metallic texture of the faucet and the clean white ceramic sink. The overall aesthetic is professional and high-resolution, suitable for a corporate facilities management application."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjNbEFSWycj5yT5pVIgo3dDemhieclu0ISuvreXXTS7a666FHbqAmY-aNEiufZPaAhAQOfMvc1cZI6JZBFwcAeIl4CtJ3i8A0BBpR_pQXXbkJUUcPgU84kjYMQ9GXS9jqHfm5UUYjsHMpqid7zZPxIa7ypZxIFlqg7Wgsj0S7_3HeliAOH_d77oTcujtj6kylB4Q2LW356W663DURUv5FJXokFcCQxwhPQE8ugWTNGtelZdX3MUzkvDz0nrI_8m5t0EjOlLBJGyVk"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-white"
+                      >zoom_in</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="group relative aspect-square rounded-lg overflow-hidden border border-outline-variant cursor-pointer"
+                >
+                  <img
+                    class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    data-alt="An interior shot of a commercial building plumbing setup under a kitchen sink, showing pipes and valves in a well-lit, clean utility space. The lighting is bright and even, emphasizing the organized and professional maintenance environment. The color palette is composed of metallic grays, white tiles, and subtle blue accents from plumbing components."
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7QIS2eSsz1znUJgowoWoc3a_CeAK6_EL6BYrypXaxSZPUxcKwj8E_7dtO03z7YyWymW9IshG02IljxUC4k7ZMVzE6jNCruWgO4N2fidmUgjxvlTwAi6UdkB_ZnP5wOCSypxxm5l-CVqJtsGiMwsXL0xlEcbw0ZFs5xHHnltkpK7pOhMsilHkzapx8omODTVCuE7GpzaezA2u3NeJOj-FZXFggeWGlFcZP8QLMnHpB7ugLF8ektN0sjyd_tEqG5FkXKbMxYhu7Dms"
+                  />
+                  <div
+                    class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"
+                  >
+                    <span class="material-symbols-outlined text-white"
+                      >zoom_in</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="group relative aspect-square rounded-lg overflow-hidden border border-outline-variant bg-surface-container-low flex flex-col items-center justify-center border-dashed cursor-pointer hover:bg-surface-container transition-colors"
+                >
+                  <span class="material-symbols-outlined text-outline"
+                    >add_a_photo</span
+                  >
+                  <span class="text-[10px] font-bold text-outline mt-xs"
+                    >UPLOAD</span
+                  >
+                </div>
+              </div>
+            </div>
+            <!-- Work Order Log / Timeline -->
+          </div>
+          <!-- Right Column (Assignment & Info) -->
+          <div class="lg:col-span-4 space-y-lg">
+            <!-- Assignment Card -->
+            <div
+              class="bg-white border border-outline-variant rounded-xl p-lg shadow-[0_2px_8px_rgba(0,0,0,0.02)] sticky top-20"
+            >
+              <h3 class="font-title-sm text-title-sm mb-lg flex items-center">
+                <span class="material-symbols-outlined mr-sm text-primary"
+                  >person_add</span
+                >
+                Assignment
+              </h3>
+              <div class="mb-lg">
+                <p
+                  class="font-label-uppercase text-label-uppercase text-outline mb-sm"
+                >
+                  Current Technician
+                </p>
+                <div
+                  class="flex items-center p-md bg-surface-container-low rounded-lg border border-outline-variant/30"
+                >
+                  <img
+                    alt="Ko Kyaw Zin"
+                    class="w-10 h-10 rounded-full border border-outline-variant mr-md"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuA-5Zv2JjhQWpfHNLoZ_LjZHmx4Sx7C-9lJjAULuW5o5CcvuYYv54-0atbDiUFpuZOSdsiRXjoD7T1P__XsYSqr6MHhFi1ezE6J4kBVU8p3QqxLWSyFU0OwKuly6oYdYc6ZyruDe22OhfBgkRHx-xPyFT6tbzIyfFh8IXmPynY1x9asPJuWpi6PlZNuZ0iCyzxPTnLJzdCvY9DF8VAEGGlFnUOfoiBS4kDX0D2rgWCa1g1_4UI2pWPisfbRd7vAw1d-cM9ZfCjnxAY"
+                  />
+                  <div>
+                    <p class="font-body-sm text-body-sm font-bold">Ko Kyaw Zin</p>
+                    <p class="text-[11px] text-on-surface-variant"><br /></p>
+                  </div>
+                  <button
+                    class="ml-auto text-primary hover:bg-white p-xs rounded-full transition-colors"
+                  ></button>
+                </div>
+              </div>
+              <div class="space-y-md">
+                <div>
+                  <label
+                    class="font-label-uppercase text-label-uppercase text-outline block mb-sm"
+                    >Select Technician</label
+                  >
+                  <div class="relative">
+                    <select
+                      class="w-full bg-white border border-outline-variant rounded-lg px-md py-sm font-body-sm text-body-sm focus:ring-2 focus:ring-primary focus:border-primary appearance-none"
+                    >
+                      <option>Select Vendor or Technician</option>
+                      <option>Ko Htet Naing (PLUMBING Expert)</option>
+                      <option>Ma Thandar Hlaing (Maintenance)</option>
+                      <option>Yangon FixPro Services (Vendor)</option>
+                    </select>
+                    <span
+                      class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline"
+                      >expand_more</span
+                    >
+                  </div>
+                </div>
+                <button
+                  class="w-full py-sm bg-primary text-on-primary rounded-lg font-body-sm text-body-sm font-semibold hover:opacity-90 transition-all active:scale-[0.98]"
+                >
+                  Update Assignment
+                </button>
+              </div>
+            </div>
+            <!-- Status Change Card -->
+            <div
+              class="bg-white border border-outline-variant rounded-xl p-lg shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+            >
+              <h3 class="font-title-sm text-title-sm mb-lg flex items-center">
+                <span class="material-symbols-outlined mr-sm text-primary">swap_horiz</span>
+                Update Status
+              </h3>
+              <div class="space-y-md">
+                <div>
+                  <label class="font-label-uppercase text-label-uppercase text-outline block mb-sm">Current Status</label>
+                  <div class="flex items-center gap-sm px-md py-sm bg-surface-container-low rounded-lg border border-outline-variant/30">
+                    <span class="w-2 h-2 rounded-full bg-secondary inline-block"></span>
+                    <span class="font-body-sm text-body-sm font-semibold text-secondary">In Progress</span>
+                  </div>
+                </div>
+                <div>
+                  <label class="font-label-uppercase text-label-uppercase text-outline block mb-sm">Move To</label>
+                  <div class="relative">
+                    <select
+                      id="status-select"
+                      class="w-full bg-white border border-outline-variant rounded-lg px-md py-sm font-body-sm text-body-sm focus:ring-2 focus:ring-primary focus:border-primary appearance-none"
+                    >
+                      <option value="">— Select new status —</option>
+                      <option value="acknowledged">Acknowledged</option>
+                      <option value="in_progress">In Progress</option>
+                      <option value="completed">Completed</option>
+                      <option value="verified">Verified</option>
+                      <option value="cancelled">Cancelled</option>
+                    </select>
+                    <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-outline">expand_more</span>
+                  </div>
+                </div>
+                <div>
+                  <label class="font-label-uppercase text-label-uppercase text-outline block mb-sm">Note (optional)</label>
+                  <textarea
+                    class="w-full bg-white border border-outline-variant rounded-lg px-md py-sm font-body-sm text-body-sm focus:ring-2 focus:ring-primary focus:border-primary resize-none"
+                    rows="2"
+                    placeholder="Add a note to the activity log..."
+                  ></textarea>
+                </div>
+                <button
+                  id="update-status-btn"
+                  class="w-full py-sm bg-primary text-on-primary rounded-lg font-body-sm text-body-sm font-semibold hover:opacity-90 transition-all active:scale-[0.98]"
+                >
+                  Update Status
+                </button>
+              </div>
+            </div>
+            <!-- Meta Info Card -->
+            <div
+              class="bg-white border border-outline-variant rounded-xl p-lg shadow-[0_2px_8px_rgba(0,0,0,0.02)]"
+            >
+              <h3 class="font-title-sm text-title-sm mb-lg flex items-center">
+                <span class="material-symbols-outlined mr-sm text-primary">info</span>
+                Meta Info
+              </h3>
+              <div class="space-y-md">
+                <div>
+                  <p class="font-label-uppercase text-label-uppercase text-outline mb-xs">Reported At</p>
+                  <div class="flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-[16px] text-outline">lock</span>
+                    <p class="font-body-sm text-body-sm text-on-surface">May 12, 2024 · 09:30 AM</p>
+                    <span class="font-label-uppercase text-[10px] text-outline ml-xs">AUTO-LOCKED</span>
+                  </div>
+                </div>
+                <div>
+                  <p class="font-label-uppercase text-label-uppercase text-outline mb-xs">Reporter</p>
+                  <div class="flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-[16px] text-outline">person</span>
+                    <p class="font-body-sm text-body-sm text-on-surface">Ko Aung Min</p>
+                    <span class="px-xs py-[1px] bg-surface-container text-on-surface-variant text-[10px] font-bold rounded ml-xs">LOGGED IN</span>
+                  </div>
+                </div>
+                <div>
+                  <p class="font-label-uppercase text-label-uppercase text-outline mb-xs">Priority</p>
+                  <span class="px-sm py-[2px] bg-error-container/20 text-error text-[11px] font-bold rounded-full border border-error/20">URGENT</span>
+                </div>
+                <div>
+                  <p class="font-label-uppercase text-label-uppercase text-outline mb-xs">Category</p>
+                  <p class="font-body-sm text-body-sm text-on-surface">PLUMBING → Low Water Pressure</p>
+                </div>
+                <div>
+                  <p class="font-label-uppercase text-label-uppercase text-outline mb-xs">Vendor Assigned</p>
+                  <p class="font-body-sm text-body-sm text-on-surface">Yangon FixPro Services</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+      <!-- Contextual FAB (Hidden as per mandate for Detail Screens) -->
+    </div>
+    <script>
+      // Simple micro-interactions
+      document.querySelectorAll("button").forEach((btn) => {
+        btn.addEventListener("click", function () {
+          this.classList.add("opacity-50");
+          setTimeout(() => this.classList.remove("opacity-50"), 150);
+        });
+      });
+
+      // Sticky header transparency effect
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        if (window.scrollY > 20) {
+          header.classList.add("shadow-sm");
+          header.classList.add("bg-white/80");
+          header.classList.add("backdrop-blur-md");
+        } else {
+          header.classList.remove("shadow-sm");
+          header.classList.remove("bg-white/80");
+          header.classList.remove("backdrop-blur-md");
+        }
+      });
+    </script>
+  
+  <script>
+    document.querySelectorAll('nav a').forEach(a => {
+      const t = a.textContent.trim();
+      if (t === 'All Jobs')   a.href = 'admin-portal.html';
+      if (t === 'Submit Job') a.href = 'admin-request.html';
+      if (t === 'Settings')   a.href = 'admin-settings.html';
+      if (t === 'Logout')     a.href = 'log-in.html';
+    });
+    // Back arrow
+    document.querySelectorAll('button').forEach(btn => {
+      if (btn.querySelector('span') && btn.querySelector('span').textContent.trim() === 'arrow_back') {
+        btn.addEventListener('click', () => location.href = 'admin-portal.html');
+      }
+    });
+    // Update Status button
+    const statusBtn = document.getElementById('update-status-btn');
+    if (statusBtn) statusBtn.addEventListener('click', () => {
+      const sel = document.getElementById('status-select');
+      if (sel && sel.value) {
+        statusBtn.textContent = 'Status Updated ✓';
+        statusBtn.classList.add('opacity-60');
+        statusBtn.disabled = true;
+      }
+    });
+  </script>
+  <script src="prototype-flow.js"></script>
+  </body>
+</html>

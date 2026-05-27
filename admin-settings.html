@@ -1,0 +1,450 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UpKeep MM - Admin Settings</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              tertiary: "#7f2500",
+              "error-container": "#ffdad6",
+              "on-background": "#141b2b",
+              "tertiary-fixed-dim": "#ffb59c",
+              "inverse-on-surface": "#edf0ff",
+              "surface-container-high": "#e1e8fd",
+              "primary-container": "#1d4ed8",
+              "on-tertiary-container": "#ffc9b7",
+              secondary: "#0051d5",
+              "surface-container-lowest": "#ffffff",
+              "on-surface-variant": "#434655",
+              "on-primary-fixed": "#001551",
+              "surface-tint": "#2151da",
+              "on-secondary-fixed": "#00174b",
+              "on-tertiary-fixed": "#390c00",
+              "on-secondary-container": "#fefcff",
+              "primary-fixed-dim": "#b7c4ff",
+              "secondary-container": "#316bf3",
+              background: "#f9f9ff",
+              "on-primary-container": "#cad3ff",
+              "surface-container-low": "#f1f3ff",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-surface": "#141b2b",
+              "inverse-primary": "#b7c4ff",
+              "surface-variant": "#dce2f7",
+              surface: "#f9f9ff",
+              "on-primary-fixed-variant": "#0039b5",
+              "on-error": "#ffffff",
+              "tertiary-fixed": "#ffdbcf",
+              "secondary-fixed": "#dbe1ff",
+              "tertiary-container": "#a73400",
+              outline: "#747686",
+              "surface-container": "#e9edff",
+              "surface-bright": "#f9f9ff",
+              "outline-variant": "#c4c5d7",
+              primary: "#0037b0",
+              "on-tertiary-fixed-variant": "#832700",
+              "on-primary": "#ffffff",
+              "inverse-surface": "#293040",
+              "on-error-container": "#93000a",
+              "on-tertiary": "#ffffff",
+              "surface-container-highest": "#dce2f7",
+              "primary-fixed": "#dce1ff",
+              "on-secondary": "#ffffff",
+              error: "#ba1a1a",
+              "surface-dim": "#d3daef",
+              "on-secondary-fixed-variant": "#003ea8",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              xs: "4px",
+              "margin-mobile": "16px",
+              xl: "32px",
+              sm: "8px",
+              md: "16px",
+              lg: "24px",
+              gutter: "24px",
+              "margin-desktop": "32px",
+              base: "4px",
+            },
+            fontFamily: {
+              "data-tabular": ["Inter"],
+              "body-sm": ["Inter"],
+              "title-sm": ["Inter"],
+              "label-uppercase": ["Inter"],
+              "display-lg": ["Inter"],
+              "headline-md": ["Inter"],
+              "body-base": ["Inter"],
+            },
+            fontSize: {
+              "data-tabular": [
+                "14px",
+                { lineHeight: "20px", fontWeight: "500" },
+              ],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "title-sm": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+              "label-uppercase": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "body-base": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(229, 231, 235, 0.5);
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface min-h-screen flex">
+    <!-- SideNavBar -->
+    <aside
+      class="fixed left-0 top-0 h-full w-[260px] z-50 bg-surface-container-lowest border-r border-outline-variant flex flex-col py-4"
+    >
+      <div class="px-6 mb-10">
+        <div class="flex items-center gap-3">
+          <div
+            class="w-8 h-8 bg-primary rounded flex items-center justify-center text-on-primary"
+          >
+            <span
+              class="material-symbols-outlined text-[20px]"
+              data-icon="construction"
+              >construction</span
+            >
+          </div>
+          <div>
+            <h1
+              class="font-headline-md text-headline-md font-black text-primary dark:text-primary-fixed-dim"
+            >
+              UpKeep MM
+            </h1>
+            <p
+              class="font-label-uppercase text-label-uppercase text-on-surface-variant opacity-70"
+            >
+              Admin Console
+            </p>
+          </div>
+        </div>
+      </div>
+      <nav class="flex-1 space-y-1">
+        <a
+          class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-all duration-200"
+          href="admin-portal.html"
+        >
+          <span class="material-symbols-outlined" data-icon="assignment"
+            >assignment</span
+          >
+          <span class="font-label-uppercase text-label-uppercase"
+            >All Jobs</span
+          >
+        </a>
+        <a
+          class="flex items-center gap-3 px-4 py-3 text-on-surface-variant dark:text-surface-variant hover:bg-surface-container-low dark:hover:bg-surface-variant transition-all duration-200"
+          href="admin-request.html"
+        >
+          <span class="material-symbols-outlined" data-icon="add_task"
+            >add_task</span
+          >
+          <span class="font-label-uppercase text-label-uppercase"
+            >Submit Job</span
+          >
+        </a>
+        <!-- Active State: Settings -->
+        <a
+          class="flex items-center gap-3 px-4 py-3 bg-primary-fixed text-on-primary-fixed border-l-[3px] border-primary font-bold transition-all duration-200"
+          href="admin-settings.html"
+        >
+          <span
+            class="material-symbols-outlined"
+            data-icon="settings"
+            style="font-variation-settings: &quot;FILL&quot; 1"
+            >settings</span
+          >
+          <span class="font-label-uppercase text-label-uppercase"
+            >Settings</span
+          >
+        </a>
+      </nav>
+      <div class="mt-auto px-4">
+        <a
+          class="flex items-center gap-3 px-4 py-3 text-error hover:bg-error-container hover:bg-opacity-10 rounded-lg transition-all duration-200"
+          href="log-in.html"
+        >
+          <span class="material-symbols-outlined" data-icon="logout"
+            >logout</span
+          >
+          <span class="font-label-uppercase text-label-uppercase">Logout</span>
+        </a>
+      </div>
+    </aside>
+    <!-- Content Canvas -->
+    <main class="ml-[260px] flex-1 flex flex-col min-h-screen">
+      <!-- TopAppBar -->
+      <header
+        class="flex justify-between items-center w-full px-6 h-16 bg-surface-container-lowest border-b border-outline-variant sticky top-0 z-40"
+      >
+        <div class="flex items-center gap-4">
+          <h2
+            class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim"
+          >
+            Settings
+          </h2>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="flex items-center gap-2">
+            <button
+              class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors"
+            >
+              <span class="material-symbols-outlined" data-icon="notifications"
+                >notifications</span
+              ></button
+            ><button
+              class="p-2 text-on-surface-variant hover:bg-surface-container-low rounded-full transition-colors"
+            >
+              <span class="material-symbols-outlined" data-icon="help"
+                >help</span
+              >
+            </button>
+          </div>
+          <div class="h-8 w-[1px] bg-outline-variant"></div>
+          <div class="flex items-center gap-md">
+            <button
+              class="px-lg py-sm border border-outline text-on-surface rounded-lg font-label-uppercase text-label-uppercase hover:bg-surface-container-low active:scale-95 transition-all"
+            >
+              Cancel Changes</button
+            ><button
+              class="bg-primary text-on-primary px-lg py-sm rounded-lg font-label-uppercase text-label-uppercase flex items-center gap-2 hover:opacity-90 active:scale-95 transition-all"
+            >
+              <span class="">Save Changes</span>
+            </button>
+          </div>
+        </div>
+      </header>
+      <!-- Settings Body: Minimalist Grid Layout -->
+      <div class="p-lg max-w-5xl mx-auto w-full flex flex-col gap-lg">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-xl">
+          <section
+            class="flex flex-col gap-lg bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm"
+          >
+            <div
+              class="flex items-center gap-2 border-b border-outline-variant pb-2"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-[20px]"
+                data-icon="business"
+                >business</span
+              >
+              <h3 class="font-title-sm text-title-sm">Organization Details</h3>
+            </div>
+            <div class="flex flex-col gap-lg">
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                  >Organization Name</label
+                ><input
+                  class="bg-surface-container-low border border-outline-variant focus:border-primary rounded-lg px-md py-3 font-body-sm text-body-sm outline-none transition-all"
+                  type="text"
+                  value="Shwe Yangon Facilities Group"
+                />
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                  >Headquarters Address</label
+                ><textarea
+                  class="bg-surface-container-low border border-outline-variant focus:border-primary rounded-lg px-md py-3 font-body-sm text-body-sm outline-none resize-none transition-all"
+                  rows="3"
+                >
+No. 88, Kabar Aye Pagoda Road, Bahan, Yangon</textarea
+                >
+              </div>
+            </div>
+          </section>
+          <section
+            class="flex flex-col gap-lg bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm"
+          >
+            <div
+              class="flex items-center gap-2 border-b border-outline-variant pb-2"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-[20px]"
+                data-icon="contact_page"
+                >contact_page</span
+              >
+              <h3 class="font-title-sm text-title-sm">Contact Details</h3>
+            </div>
+            <div class="flex flex-col gap-lg">
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                  >Primary Contact Name</label
+                ><input
+                  class="bg-surface-container-low border border-outline-variant focus:border-primary rounded-lg px-md py-3 font-body-sm text-body-sm outline-none transition-all"
+                  type="text"
+                  value="Ko Aung Min"
+                />
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                  >Email Address</label
+                ><input
+                  class="bg-surface-container-low border border-outline-variant focus:border-primary rounded-lg px-md py-3 font-body-sm text-body-sm outline-none transition-all"
+                  type="email"
+                  value="aungmin@upkeepmm.com.mm"
+                />
+              </div>
+              <div class="flex flex-col gap-xs">
+                <label
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                  >Phone Number</label
+                ><input
+                  class="bg-surface-container-low border border-outline-variant focus:border-primary rounded-lg px-md py-3 font-body-sm text-body-sm outline-none transition-all"
+                  type="tel"
+                  value="+1 (555) 123-4567"
+                />
+              </div>
+            </div>
+          </section>
+          <section
+            class="flex flex-col gap-lg bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm"
+          >
+            <div
+              class="flex items-center gap-2 border-b border-outline-variant pb-2"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-[20px]"
+                data-icon="palette"
+                >palette</span
+              >
+              <h3 class="font-title-sm text-title-sm">Display</h3>
+            </div>
+            <div class="flex flex-col gap-xs">
+              <label
+                class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                >System Theme</label
+              ><select
+                class="bg-surface-container-low border border-outline-variant focus:border-primary rounded-lg px-md py-3 font-body-sm text-body-sm outline-none cursor-pointer transition-all"
+              >
+                <option value="light">Light Mode</option>
+                <option value="dark">Dark Mode</option>
+                <option value="system">System Default</option>
+              </select>
+            </div>
+          </section>
+          <section
+            class="flex flex-col gap-lg bg-surface-container-lowest p-lg rounded-xl border border-outline-variant shadow-sm"
+          >
+            <div
+              class="flex items-center gap-2 border-b border-outline-variant pb-2"
+            >
+              <span
+                class="material-symbols-outlined text-primary text-[20px]"
+                data-icon="language"
+                >language</span
+              >
+              <h3 class="font-title-sm text-title-sm">Language</h3>
+            </div>
+            <div class="flex flex-col gap-xs">
+              <label
+                class="font-label-uppercase text-label-uppercase text-on-surface-variant"
+                >Select Language</label
+              ><select
+                class="bg-surface-container-low border border-outline-variant focus:border-primary rounded-lg px-md py-3 font-body-sm text-body-sm outline-none cursor-pointer transition-all"
+              >
+                <option value="en">English (US)</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="de">Deutsch</option>
+              </select>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Simple Save Changes feedback
+      const saveBtn = document.querySelector("header button.bg-primary");
+      saveBtn.addEventListener("click", () => {
+        const originalContent = saveBtn.innerHTML;
+        saveBtn.innerHTML =
+          '<span class="material-symbols-outlined animate-spin" data-icon="sync">sync</span> <span>Saving...</span>';
+        saveBtn.classList.add("opacity-80");
+
+        setTimeout(() => {
+          saveBtn.innerHTML =
+            '<span class="material-symbols-outlined" data-icon="check">check</span> <span>Saved</span>';
+          saveBtn.classList.replace("bg-primary", "bg-green-600");
+
+          setTimeout(() => {
+            saveBtn.innerHTML = originalContent;
+            saveBtn.classList.replace("bg-green-600", "bg-primary");
+            saveBtn.classList.remove("opacity-80");
+          }, 2000);
+        }, 1000);
+      });
+    </script>
+  
+  <script>
+    document.querySelectorAll('nav a').forEach(a => {
+      const t = a.textContent.trim();
+      if (t === 'All Jobs')   a.href = 'admin-portal.html';
+      if (t === 'Submit Job') a.href = 'admin-request.html';
+      if (t === 'Logout')     a.href = 'log-in.html';
+    });
+  </script>
+  <script src="prototype-flow.js"></script>
+  </body>
+</html>

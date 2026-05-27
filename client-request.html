@@ -1,0 +1,515 @@
+<!doctype html>
+<html class="light" lang="en" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UpKeep MM - New Request</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-highest": "#dce2f7",
+              "on-secondary": "#ffffff",
+              "on-surface": "#141b2b",
+              "primary-fixed-dim": "#b7c4ff",
+              "on-error": "#ffffff",
+              secondary: "#0051d5",
+              "on-secondary-container": "#fefcff",
+              "surface-tint": "#2151da",
+              "outline-variant": "#c4c5d7",
+              "surface-variant": "#dce2f7",
+              "on-secondary-fixed": "#00174b",
+              "secondary-container": "#316bf3",
+              "surface-dim": "#d3daef",
+              "tertiary-fixed-dim": "#ffb59c",
+              "secondary-fixed": "#dbe1ff",
+              "surface-container-high": "#e1e8fd",
+              "inverse-primary": "#b7c4ff",
+              "error-container": "#ffdad6",
+              "tertiary-fixed": "#ffdbcf",
+              "surface-container": "#e9edff",
+              primary: "#0037b0",
+              "on-primary-container": "#cad3ff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "on-tertiary": "#ffffff",
+              surface: "#f9f9ff",
+              "on-error-container": "#93000a",
+              "primary-container": "#1d4ed8",
+              error: "#ba1a1a",
+              "secondary-fixed-dim": "#b4c5ff",
+              "on-surface-variant": "#434655",
+              "surface-container-lowest": "#ffffff",
+              outline: "#747686",
+              "on-background": "#141b2b",
+              tertiary: "#7f2500",
+              "surface-bright": "#f9f9ff",
+              "inverse-surface": "#293040",
+              "tertiary-container": "#a73400",
+              "inverse-on-surface": "#edf0ff",
+              "on-primary": "#ffffff",
+              background: "#f9f9ff",
+              "on-primary-fixed": "#001551",
+              "on-tertiary-fixed-variant": "#832700",
+              "surface-container-low": "#f1f3ff",
+              "on-primary-fixed-variant": "#0039b5",
+              "on-tertiary-fixed": "#390c00",
+              "primary-fixed": "#dce1ff",
+              "on-tertiary-container": "#ffc9b7",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              xl: "32px",
+              "margin-desktop": "32px",
+              sm: "8px",
+              "margin-mobile": "16px",
+              lg: "24px",
+              md: "16px",
+              xs: "4px",
+              base: "4px",
+              gutter: "24px",
+            },
+            fontFamily: {
+              "title-sm": ["Inter"],
+              "body-sm": ["Inter"],
+              "display-lg": ["Inter"],
+              "label-uppercase": ["Inter"],
+              "headline-md": ["Inter"],
+              "data-tabular": ["Inter"],
+              "body-base": ["Inter"],
+            },
+            fontSize: {
+              "title-sm": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "display-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "label-uppercase": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "data-tabular": [
+                "14px",
+                { lineHeight: "20px", fontWeight: "500" },
+              ],
+              "body-base": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+    </style>
+  </head>
+  <body class="bg-surface text-on-surface">
+    <!-- SideNavBar Shell -->
+    <aside
+      class="fixed left-0 top-0 h-screen w-[260px] bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline flex flex-col h-full py-lg"
+    >
+      <div class="px-lg mb-xl">
+        <h1
+          class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed"
+        >
+          UpKeep MM
+        </h1>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Client Portal
+        </p>
+      </div>
+      <nav class="flex-1 space-y-1">
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="client-portal.html"
+        >
+          <span class="material-symbols-outlined">list_alt</span>
+          <span class="font-body-sm text-body-sm">My Requests</span>
+        </a>
+        <a
+          class="flex items-center gap-md px-lg py-sm text-primary font-semibold border-l-[3px] border-primary bg-surface-container-low transition-colors duration-200"
+          href="client-request.html"
+        >
+          <span class="material-symbols-outlined">add_circle</span>
+          <span class="font-body-sm text-body-sm">New Request</span>
+        </a>
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="client-settings.html"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span class="font-body-sm text-body-sm">Settings</span>
+        </a>
+      </nav>
+      <nav class="mb-4">
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="log-in.html"
+        >
+          <span class="material-symbols-outlined">logout</span>
+          <span class="font-body-sm text-body-sm">Logout</span>
+        </a>
+      </nav>
+      <nav class="px-sm mb-md"></nav>
+      <div class="px-lg mt-auto flex items-center gap-md">
+        <img
+          alt="User profile photo"
+          class="w-10 h-10 rounded-full bg-surface-container"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHEvB_tn7EhLGAAI_TwkArtUKOOsIlqmUvzF-XQJq98WHaegqEKzfNvFAKPdcVED7AXwJXhbIK6hTt-mHCslQrJ-bKkCXfksH10_AZO1qXZNNP8_TEEEwWdZMD8J_1BNPY1Bl1KSSFTAIIvwR4OTe5OgN-PSaU6Rid_DzHSRdeOql2bkir8C91vY3feFtgFRh2CXfIDozAIXmv1dFl7Kj2ckwGhP1NjV6ve_DXSxR9RQ6I4sCCHWKS4w6-x_Brp6eFkV2vszZPnoE"
+        />
+        <div>
+          <p class="font-title-sm text-body-sm font-bold">Ma Aye Aye</p>
+          <p class="text-xs text-on-surface-variant">Facility Client</p>
+        </div>
+      </div>
+    </aside>
+    <!-- TopNavBar Shell -->
+    <header
+      class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex items-center justify-between px-margin-desktop w-full ml-[260px] z-10"
+    >
+      <div class="flex items-center gap-lg">
+        <h2
+          class="font-headline-md text-headline-md font-bold text-on-surface dark:text-on-surface"
+        >
+          UpKeep MM
+        </h2>
+        <div class="relative w-96">
+          <span
+            class="material-symbols-outlined absolute left-md top-1/2 -translate-y-1/2 text-outline"
+            data-icon="search"
+            >search</span
+          >
+          <input
+            class="w-full pl-xl pr-md py-xs bg-surface-container-low border border-outline-variant rounded-lg font-body-sm focus:outline-none focus:border-primary"
+            placeholder="Search orders..."
+            type="text"
+          />
+        </div>
+      </div>
+      <div class="flex items-center gap-lg">
+        <button
+          class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-opacity duration-200 cursor-pointer"
+          data-icon="notifications"
+        >
+          notifications
+        </button>
+        <button
+          class="material-symbols-outlined text-on-surface-variant hover:text-primary transition-opacity duration-200 cursor-pointer"
+          data-icon="help_outline"
+        >
+          help_outline
+        </button>
+        <img
+          alt="User avatar"
+          class="w-8 h-8 rounded-full"
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9wZKqUirU9d7IAylNP88cAer-Oovm-Lis8AoA5Mcf5mTXV1ReBAQv5hJoJKpOck4LLFiWYcqgQE-Dz-uIRwxJyW0CdJNupTFhE3KI5ceBr1sVk3nuoxgCNuzsouMcxt-pwF9r84i_47JJkOY0ejCpr6c4PaSDRBBkSKTVm7MfTiL6RY-7U5uMZsyLNbM2SCU8TZRBtjV5QtvUP4yXU_PA9TCIldFDAh8SlSenkhHxGLNEUIGJohughaJQpAXV3Mh34Y90glmXA8U"
+        />
+      </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main class="ml-[260px] pt-16 min-h-screen bg-surface">
+      <div class="max-w-[1200px] mx-auto p-margin-desktop">
+        <div class="flex flex-col gap-gutter">
+          <!-- Guided Form Section (70%) -->
+          <div class="space-y-lg">
+            <div class="flex flex-col gap-xs mb-lg">
+              <h3 class="font-display-lg text-display-lg text-primary">
+                Submit Job Request
+              </h3>
+              <p class="font-body-base text-body-base text-on-surface-variant">
+                Create a new ticket for the facilities team. We'll handle the
+                rest.
+              </p>
+            </div>
+            <!-- Form Card -->
+            <div
+              class="bg-surface-container-lowest border border-outline-variant rounded-xl p-lg shadow-sm"
+            >
+              <form action="client-portal.html" class="space-y-lg" method="GET">
+                <!-- Section: Basic Info -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                  <div class="col-span-full">
+                    <label
+                      class="font-label-uppercase text-label-uppercase text-outline mb-xs block"
+                      >Issue Title</label
+                    >
+                    <input
+                      class="w-full px-md py-sm border border-outline-variant rounded-lg font-body-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none"
+                      placeholder="e.g., leaking faucet at Hledan Center pantry"
+                      type="text"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      class="font-label-uppercase text-label-uppercase text-outline mb-xs block"
+                      >Location / Room</label
+                    >
+                    <div class="relative">
+                      <span
+                        class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline"
+                        data-icon="location_on"
+                        >location_on</span
+                      >
+                      <input
+                        class="w-full pl-xl pr-md py-sm border border-outline-variant rounded-lg font-body-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none"
+                        placeholder="Level 2, Room 204, Sanchaung Office"
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <label
+                      class="font-label-uppercase text-label-uppercase text-outline mb-xs block"
+                      >Priority Level</label
+                    >
+                    <div class="flex gap-sm">
+                      <label
+                        class="flex-1 flex items-center justify-center gap-xs px-md py-sm border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:bg-primary-container has-[:checked]:text-on-primary-container has-[:checked]:border-primary"
+                      >
+                        <input
+                          checked=""
+                          class="hidden"
+                          name="priority"
+                          type="radio"
+                        />
+                        <span
+                          class="material-symbols-outlined text-sm"
+                          data-icon="low_priority"
+                          >low_priority</span
+                        >
+                        <span class="font-body-sm">Normal</span>
+                      </label>
+                      <label
+                        class="flex-1 flex items-center justify-center gap-xs px-md py-sm border border-outline-variant rounded-lg cursor-pointer hover:bg-surface-container-low transition-colors has-[:checked]:bg-error-container has-[:checked]:text-on-error-container has-[:checked]:border-error"
+                      >
+                        <input class="hidden" name="priority" type="radio" />
+                        <span
+                          class="material-symbols-outlined text-sm"
+                          data-icon="priority_high"
+                          >priority_high</span
+                        >
+                        <span class="font-body-sm">Urgent</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <!-- Section: Category -->
+                <div>
+                  <label
+                    class="font-label-uppercase text-label-uppercase text-outline mb-md block"
+                    >Category</label
+                  >
+                  <!-- Step 1: Parent -->
+                  <div class="relative h-[48px] mb-sm">
+                    <select
+                      id="cat-parent"
+                      class="w-full h-full px-md bg-surface-container-low border border-outline-variant rounded-lg font-body-sm text-body-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none appearance-none transition-all"
+                    >
+                      <option value="">— Select category —</option>
+                      <option>HVAC</option>
+                      <option>PLUMBING</option>
+                      <option>ELECTRICAL</option>
+                      <option>OTHERS</option>
+                    </select>
+                    <span
+                      class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant"
+                      >expand_more</span
+                    >
+                  </div>
+                  <!-- Step 2: Child -->
+                  <div id="cat-child-wrap" class="relative h-[48px] hidden">
+                    <select
+                      id="cat-child"
+                      class="w-full h-full px-md bg-surface-container-low border border-primary/30 rounded-lg font-body-sm text-body-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none appearance-none transition-all"
+                    >
+                      <option value="">— Select sub-category —</option>
+                    </select>
+                    <span
+                      class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant"
+                      >expand_more</span
+                    >
+                  </div>
+                </div>
+                <!-- Section: Description -->
+                <div>
+                  <label
+                    class="font-label-uppercase text-label-uppercase text-outline mb-xs block"
+                    >Detailed Description</label
+                  >
+                  <textarea
+                    class="w-full px-md py-sm border border-outline-variant rounded-lg font-body-sm focus:ring-1 focus:ring-primary focus:border-primary outline-none"
+                    placeholder="Please provide as much detail as possible about the issue..."
+                    rows="4"
+                  ></textarea>
+                </div>
+                <!-- Section: Attach Photos -->
+                <div>
+                  <label
+                    class="font-label-uppercase text-label-uppercase text-outline mb-xs block"
+                    >Attach Photos</label
+                  >
+                  <div
+                    class="border-2 border-dashed border-outline-variant rounded-xl p-xl flex flex-col items-center justify-center gap-sm bg-surface-container-low hover:bg-surface-container transition-colors cursor-pointer"
+                  >
+                    <span
+                      class="material-symbols-outlined text-display-lg text-primary"
+                      data-icon="cloud_upload"
+                      >cloud_upload</span
+                    >
+                    <div class="text-center">
+                      <p class="font-title-sm text-body-sm">
+                        Drag and drop photos here
+                      </p>
+                      <p class="text-xs text-on-surface-variant">
+                        or click to browse from your device
+                      </p>
+                    </div>
+                    <p class="text-[10px] text-outline mt-sm">
+                      JPG, PNG up to 10MB each
+                    </p>
+                  </div>
+                </div>
+                <!-- Actions -->
+                <div
+                  class="flex items-center justify-end gap-md pt-lg border-t border-outline-variant"
+                >
+                  <button
+                    class="px-lg py-sm font-title-sm text-body-sm text-on-surface-variant hover:bg-surface-container transition-colors rounded-lg"
+                    type="button"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    class="px-xl py-sm font-title-sm text-body-sm bg-primary text-on-primary rounded-lg hover:bg-primary-container transition-all active:scale-95"
+                    type="submit"
+                  >
+                    Submit Request
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+          <!-- Sidebar Tips Section (30%) -->
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const categoryMap = {
+        HVAC: [
+          "Not Cooling",
+          "Not Heating",
+          "Strange Noise",
+          "Water Leak",
+          "Filter Change",
+          "Other",
+        ],
+        PLUMBING: [
+          "Low Water Pressure",
+          "Pipe Leak",
+          "Blocked Drain",
+          "No Hot Water",
+          "Burst Pipe",
+          "Other",
+        ],
+        ELECTRICAL: [
+          "Power Outage",
+          "Wiring Fault",
+          "Lighting Issue",
+          "Tripped Breaker",
+          "Socket Not Working",
+          "Other",
+        ],
+        OTHERS: [
+          "Door / Window Issue",
+          "Wall or Floor Damage",
+          "Cleaning Request",
+          "Access or Lock Issue",
+          "General Maintenance",
+          "Other",
+        ],
+      };
+
+      const parentSel = document.getElementById("cat-parent");
+      const childWrap = document.getElementById("cat-child-wrap");
+      const childSel = document.getElementById("cat-child");
+
+      parentSel.addEventListener("change", function () {
+        const subs = categoryMap[this.value];
+        childSel.innerHTML =
+          '<option value="">— Select sub-category —</option>';
+        if (subs) {
+          subs.forEach((s) => {
+            const o = document.createElement("option");
+            o.value = s;
+            o.textContent = s;
+            childSel.appendChild(o);
+          });
+          childWrap.classList.remove("hidden");
+        } else {
+          childWrap.classList.add("hidden");
+        }
+      });
+    </script>
+  
+  <script>
+    document.querySelectorAll('nav a').forEach(a => {
+      const t = a.textContent.trim();
+      if (t === 'My Requests') a.href = 'client-portal.html';
+      if (t === 'Settings')    a.href = 'client-settings.html';
+      if (t === 'Logout')      a.href = 'log-in.html';
+    });
+    // Submit button
+    document.querySelectorAll('button[type=submit], button').forEach(btn => {
+      if (btn.textContent.trim().includes('Submit')) {
+        btn.addEventListener('click', e => { e.preventDefault(); location.href = 'client-portal.html'; });
+      }
+    });
+  </script>
+  <script src="prototype-flow.js"></script>
+  </body>
+</html>

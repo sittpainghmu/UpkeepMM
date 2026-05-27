@@ -1,0 +1,299 @@
+<!doctype html>
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Sign In | UpKeep MM</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Material Symbols -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- Google Fonts: Inter -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary-container": "#1d4ed8",
+              "on-primary": "#ffffff",
+              "surface-tint": "#2151da",
+              "on-surface-variant": "#434655",
+              "outline-variant": "#c4c5d7",
+              "primary-fixed": "#dce1ff",
+              "on-error-container": "#93000a",
+              "on-secondary-fixed-variant": "#003ea8",
+              background: "#f9f9ff",
+              "on-secondary": "#ffffff",
+              secondary: "#0051d5",
+              "on-error": "#ffffff",
+              "primary-fixed-dim": "#b7c4ff",
+              "on-tertiary-fixed-variant": "#832700",
+              "surface-variant": "#dce2f7",
+              "secondary-fixed-dim": "#b4c5ff",
+              "surface-container-highest": "#dce2f7",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#e1e8fd",
+              "inverse-on-surface": "#edf0ff",
+              error: "#ba1a1a",
+              "on-tertiary-fixed": "#390c00",
+              "on-primary-container": "#cad3ff",
+              "surface-bright": "#f9f9ff",
+              "on-surface": "#141b2b",
+              surface: "#f9f9ff",
+              "secondary-container": "#316bf3",
+              tertiary: "#7f2500",
+              "surface-container-low": "#f1f3ff",
+              "surface-container": "#e9edff",
+              "on-secondary-container": "#fefcff",
+              "on-tertiary-container": "#ffc9b7",
+              "on-primary-fixed": "#001551",
+              "on-background": "#141b2b",
+              "inverse-surface": "#293040",
+              "on-primary-fixed-variant": "#0039b5",
+              primary: "#0037b0",
+              "secondary-fixed": "#dbe1ff",
+              "on-secondary-fixed": "#00174b",
+              "tertiary-fixed-dim": "#ffb59c",
+              "inverse-primary": "#b7c4ff",
+              "error-container": "#ffdad6",
+              "tertiary-container": "#a73400",
+              "surface-dim": "#d3daef",
+              outline: "#747686",
+              "on-tertiary": "#ffffff",
+              "tertiary-fixed": "#ffdbcf",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              "margin-mobile": "16px",
+              xs: "4px",
+              lg: "24px",
+              gutter: "24px",
+              xl: "32px",
+              sm: "8px",
+              md: "16px",
+              "margin-desktop": "32px",
+              base: "4px",
+            },
+            fontFamily: {
+              "label-uppercase": ["Inter"],
+              "data-tabular": ["Inter"],
+              "title-sm": ["Inter"],
+              "body-sm": ["Inter"],
+              "body-base": ["Inter"],
+              "headline-md": ["Inter"],
+              "display-lg": ["Inter"],
+            },
+            fontSize: {
+              "label-uppercase": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "data-tabular": [
+                "14px",
+                { lineHeight: "20px", fontWeight: "500" },
+              ],
+              "title-sm": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "body-base": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "display-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        display: inline-block;
+        line-height: 1;
+        text-transform: none;
+        letter-spacing: normal;
+        word-wrap: normal;
+        white-space: nowrap;
+        direction: ltr;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+  </head>
+  <body
+    class="bg-surface text-on-surface min-h-screen flex items-center justify-center p-margin-mobile md:p-margin-desktop"
+  >
+    <!-- Login Container -->
+    <main class="w-full max-w-[440px] flex flex-col items-center">
+      <!-- Brand Identity Section -->
+      <div class="mb-xl text-center">
+        <div
+          class="inline-flex items-center justify-center w-12 h-12 bg-primary rounded-lg mb-md"
+        >
+          <span class="material-symbols-outlined text-on-primary text-[28px]"
+            >precision_manufacturing</span
+          >
+        </div>
+        <h1 class="font-display-lg text-display-lg text-primary tracking-tight">
+          UpKeep MM
+        </h1>
+        <p class="font-body-sm text-body-sm text-on-surface-variant mt-xs">
+          Yangon Maintenance Management System
+        </p>
+      </div>
+      <!-- Login Card -->
+      <div
+        class="w-full bg-surface-container-lowest border border-outline-variant rounded-lg p-lg md:p-xl shadow-[0px_4px_12px_rgba(0,0,0,0.05)]"
+      >
+        <form action="log-in-role.html" class="space-y-lg" method="GET">
+          <!-- Email Field -->
+          <div class="space-y-xs">
+            <label
+              class="font-label-uppercase text-label-uppercase text-on-surface-variant block uppercase"
+              for="email"
+            >
+              Email Address
+            </label>
+            <div class="relative group">
+              <div
+                class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none"
+              >
+                <span
+                  class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-[20px]"
+                  >mail</span
+                >
+              </div>
+              <input
+                class="w-full pl-xl pr-md py-[10px] bg-surface-container-lowest border border-outline-variant rounded-DEFAULT font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                id="email"
+                name="email"
+                placeholder="  name@yangonbiz.mm"
+                required=""
+                type="email"
+              />
+            </div>
+          </div>
+          <!-- Password Field -->
+          <div class="space-y-xs">
+            <div class="flex justify-between items-center">
+              <label
+                class="font-label-uppercase text-label-uppercase text-on-surface-variant block uppercase"
+                for="password"
+              >
+                Password
+              </label>
+              <a
+                class="font-label-uppercase text-label-uppercase text-primary hover:text-secondary transition-colors uppercase"
+                href="#"
+              >
+                Forgot Password?
+              </a>
+            </div>
+            <div class="relative group">
+              <div
+                class="absolute inset-y-0 left-0 pl-md flex items-center pointer-events-none"
+              >
+                <span
+                  class="material-symbols-outlined text-outline group-focus-within:text-primary transition-colors text-[20px]"
+                  >lock</span
+                >
+              </div>
+              <input
+                class="w-full pl-xl pr-md py-[10px] bg-surface-container-lowest border border-outline-variant rounded-DEFAULT font-body-sm text-body-sm text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary focus:border-primary outline-none transition-all"
+                id="password"
+                name="password"
+                placeholder="  ••••••••"
+                required=""
+                type="password"
+              />
+            </div>
+          </div>
+          <!-- Remember Me -->
+          <div class="flex items-center space-x-sm">
+            <input
+              class="w-4 h-4 text-primary border-outline-variant rounded focus:ring-primary focus:ring-offset-surface cursor-pointer"
+              id="remember"
+              name="remember"
+              type="checkbox"
+            />
+            <label
+              class="font-body-sm text-body-sm text-on-surface-variant cursor-pointer select-none"
+              for="remember"
+            >
+              Keep me signed in
+            </label>
+          </div>
+          <!-- Action Button -->
+          <button
+            class="w-full bg-primary text-on-primary py-md px-lg rounded-DEFAULT font-label-uppercase text-label-uppercase uppercase tracking-wider hover:bg-secondary-container transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 active:opacity-80 flex justify-center items-center gap-sm"
+            type="submit"
+          >
+            Sign In
+            <span class="material-symbols-outlined text-[18px]">login</span>
+          </button>
+        </form>
+      </div>
+      <!-- Utility Decorative Section -->
+      <div
+        class="mt-xl grid grid-cols-3 gap-md w-full max-w-[320px] opacity-40 grayscale group-hover:grayscale-0 transition-all"
+      >
+        <div class="h-1 bg-outline-variant rounded-full"></div>
+        <div class="h-1 bg-outline-variant rounded-full"></div>
+        <div class="h-1 bg-outline-variant rounded-full"></div>
+      </div>
+      <!-- Aesthetic Imagery Description (Hidden) -->
+      <div class="sr-only">
+        <img
+          data-alt="A professional, high-end Yangon office lobby with a focus on geometric architecture and clean glass panels. The lighting is bright and natural, creating a light-mode SaaS aesthetic with soft blue and gray tones. A subtle maintenance technician silhouette is visible in the far background, emphasizing the industry focus of the UpKeep MM product while maintaining a minimalist, clean, and institucional atmosphere."
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuA3EvdVQnMz9BVS-1gBSdQVMLMxoQxK3tuMeSqLoxWZKSx-fV4cZFjs6VRWOsTig5vb4iP78W1kxHlRSIgEwghBXY-F3wcZ_C3MVocg8-YIR6f1qVnPuh1AT1HLHHuBokNnQwF6_eM2V6zSz4fEIrSfqkztkH9zsbqqtgkc6931bs1o2Mz284p0zLy7lTHq7TnzIFRC9Ge0OGSBEY7t5_nCE9cYVUOoSijNp1fK4_MU4DZzKYoxqO8AMIIvg4Vc9hALP-1r_Oap3Ck"
+        />
+      </div>
+    </main>
+
+    <script>
+      document.querySelector("form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        location.href = "log-in-role.html";
+      });
+    </script>
+    <script src="prototype-flow.js"></script>
+  </body>
+</html>

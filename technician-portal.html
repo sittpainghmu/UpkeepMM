@@ -1,0 +1,496 @@
+<!doctype html>
+<html class="light" lang="en" style="">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>UpKeep MM - Technician Portal</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "tertiary-container": "#a73400",
+              "primary-container": "#1d4ed8",
+              "secondary-fixed": "#dbe1ff",
+              "on-secondary-fixed-variant": "#003ea8",
+              "surface-container": "#e9edff",
+              "on-tertiary-fixed": "#390c00",
+              "on-secondary": "#ffffff",
+              "surface-tint": "#2151da",
+              "surface-container-low": "#f1f3ff",
+              "surface-bright": "#f9f9ff",
+              "on-surface": "#141b2b",
+              "on-tertiary": "#ffffff",
+              "on-secondary-fixed": "#00174b",
+              "on-surface-variant": "#434655",
+              "on-background": "#141b2b",
+              "inverse-primary": "#b7c4ff",
+              "inverse-on-surface": "#edf0ff",
+              surface: "#f9f9ff",
+              "on-tertiary-fixed-variant": "#832700",
+              "on-tertiary-container": "#ffc9b7",
+              "error-container": "#ffdad6",
+              "surface-container-lowest": "#ffffff",
+              "surface-variant": "#dce2f7",
+              "primary-fixed-dim": "#b7c4ff",
+              outline: "#747686",
+              "surface-container-highest": "#dce2f7",
+              "secondary-container": "#316bf3",
+              "surface-container-high": "#e1e8fd",
+              "primary-fixed": "#dce1ff",
+              "on-primary-container": "#cad3ff",
+              "on-error": "#ffffff",
+              "tertiary-fixed-dim": "#ffb59c",
+              error: "#ba1a1a",
+              "secondary-fixed-dim": "#b4c5ff",
+              tertiary: "#7f2500",
+              "on-primary-fixed": "#001551",
+              "surface-dim": "#d3daef",
+              "on-primary": "#ffffff",
+              background: "#f9f9ff",
+              "tertiary-fixed": "#ffdbcf",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#293040",
+              secondary: "#0051d5",
+              "on-primary-fixed-variant": "#0039b5",
+              "outline-variant": "#c4c5d7",
+              primary: "#0037b0",
+              "on-secondary-container": "#fefcff",
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+            spacing: {
+              lg: "24px",
+              sm: "8px",
+              xs: "4px",
+              md: "16px",
+              gutter: "24px",
+              base: "4px",
+              xl: "32px",
+              "margin-desktop": "32px",
+              "margin-mobile": "16px",
+            },
+            fontFamily: {
+              "display-lg": ["Inter"],
+              "title-sm": ["Inter"],
+              "body-sm": ["Inter"],
+              "label-uppercase": ["Inter"],
+              "headline-md": ["Inter"],
+              "data-tabular": ["Inter"],
+              "body-base": ["Inter"],
+            },
+            fontSize: {
+              "display-lg": [
+                "32px",
+                {
+                  lineHeight: "40px",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "title-sm": ["18px", { lineHeight: "28px", fontWeight: "600" }],
+              "body-sm": ["14px", { lineHeight: "20px", fontWeight: "400" }],
+              "label-uppercase": [
+                "12px",
+                {
+                  lineHeight: "16px",
+                  letterSpacing: "0.05em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "32px",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "data-tabular": [
+                "14px",
+                { lineHeight: "20px", fontWeight: "500" },
+              ],
+              "body-base": ["16px", { lineHeight: "24px", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+        vertical-align: middle;
+      }
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-background text-on-background antialiased overflow-hidden">
+    <!-- Sidebar Navigation -->
+    <aside
+      class="fixed left-0 top-0 h-screen w-[260px] bg-surface dark:bg-inverse-surface border-r border-outline-variant dark:border-outline flex flex-col py-lg z-50"
+    >
+      <div class="px-lg mb-xl">
+        <h1
+          class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed"
+        >
+          UpKeep MM
+        </h1>
+        <p class="font-body-sm text-body-sm text-on-surface-variant">
+          Technician Portal
+        </p>
+      </div>
+      <nav class="flex-1 space-y-1">
+        <a
+          class="flex items-center gap-md px-lg py-sm text-primary font-semibold border-l-[3px] border-primary bg-surface-container-low transition-colors duration-200"
+          href="technician-portal.html"
+        >
+          <span class="material-symbols-outlined">assignment</span>
+          <span class="font-body-sm text-body-sm">All Jobs</span>
+        </a>
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="technician-settings.html"
+        >
+          <span class="material-symbols-outlined">settings</span>
+          <span class="font-body-sm text-body-sm">Settings</span>
+        </a>
+      </nav>
+      <nav class="mb-4">
+        <a
+          class="flex items-center gap-md px-lg py-sm text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200"
+          href="log-in.html"
+        >
+          <span class="material-symbols-outlined">logout</span>
+          <span class="font-body-sm text-body-sm">Logout</span>
+        </a>
+      </nav>
+      <nav class="mb-4"></nav>
+      <div class="px-lg pt-lg mt-auto border-t border-outline-variant">
+        <div class="flex items-center gap-md">
+          <img
+            alt="Ko Kyaw Zin"
+            class="w-10 h-10 rounded-full object-cover"
+            data-alt="A professional close-up portrait of a male technician with a friendly, competent expression. He is wearing a clean navy blue utility shirt in a modern, brightly lit office corridor. The lighting is soft and natural, emphasizing a professional corporate SaaS aesthetic with a clean, high-key background."
+            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYntJc6rCA7rLUd8z28MAUEHSQz_CvYjkrTdHeD0EuQcWkPkobRz5uyxPz4a-yXM3o_hiJHAjEUqgQIN5pI-9fEMiFmyr03ipNh4nhEZn6rKVNf4RFsfCXKIp9XQ_10uPlc_BVZiRWkGQAYomRoT0Jm7P9ukGsUC5M2JvKGQILKgtoOH1Svo0n8VF2nyAyP_a-R8iQspVS1vqbK6Nb6_nWxNJ4pNNguvE1Ujgw2sGc9juDuKyWLfUIL808OnIQTJgqekBkeKTo0F0"
+          />
+          <div>
+            <p class="font-title-sm text-on-surface font-bold">Ko Kyaw Zin</p>
+            <p class="text-xs text-on-surface-variant">Maintenance Tech</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+    <!-- Top Navigation -->
+    <header
+      class="fixed top-0 right-0 w-[calc(100%-260px)] h-16 bg-surface dark:bg-inverse-surface border-b border-outline-variant dark:border-outline flex items-center justify-between px-margin-desktop z-40"
+    >
+      <div class="flex items-center gap-md">
+        <h2
+          class="font-headline-md text-on-surface dark:text-on-surface font-bold"
+        >
+          Job Order Manager
+        </h2>
+      </div>
+      <div class="flex items-center gap-lg">
+        <div class="relative">
+          <span
+            class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline"
+            data-icon="search"
+            >search</span
+          >
+          <input
+            class="bg-surface-container-low border-none rounded-lg pl-10 pr-4 py-2 text-body-sm focus:ring-2 focus:ring-primary w-64"
+            placeholder="Search tasks..."
+            type="text"
+          />
+        </div>
+        <button
+          class="text-on-surface-variant hover:text-primary transition-colors"
+        >
+          <span class="material-symbols-outlined" data-icon="notifications"
+            >notifications</span
+          >
+        </button>
+        <button
+          class="text-on-surface-variant hover:text-primary transition-colors"
+        >
+          <span class="material-symbols-outlined" data-icon="help_outline"
+            >help_outline</span
+          >
+        </button>
+      </div>
+    </header>
+    <!-- Main Content Area -->
+    <main class="ml-[260px] pt-16 h-screen overflow-y-auto bg-background">
+      <div class="p-lg max-w-7xl mx-auto">
+        <!-- Page Header & Summary -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-lg mb-xl">
+          <!-- Completion Score -->
+          <div
+            class="bg-surface border border-outline-variant p-lg rounded-xl shadow-sm"
+          >
+            <div class="flex justify-between items-start mb-md">
+              <div>
+                <p
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant mb-1"
+                >
+                  Completed
+                </p>
+                <h3
+                  class="font-display-lg text-display-lg font-bold text-on-surface"
+                >
+                  32
+                </h3>
+              </div>
+              <div class="p-2 bg-surface-container-high rounded-lg">
+                <span class="material-symbols-outlined text-on-surface-variant"
+                  >check_circle</span
+                >
+              </div>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
+              +5% from last week
+            </p>
+          </div>
+          <!-- Assigned Jobs -->
+          <div
+            class="bg-surface border border-outline-variant p-lg rounded-xl shadow-sm"
+          >
+            <div class="flex justify-between items-start mb-md">
+              <div>
+                <p
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant mb-1"
+                >
+                  Assigned
+                </p>
+                <h3
+                  class="font-display-lg text-display-lg font-bold text-on-surface"
+                >
+                  12
+                </h3>
+              </div>
+              <div class="p-2 bg-surface-container-high rounded-lg">
+                <span class="material-symbols-outlined text-on-surface-variant"
+                  >assignment</span
+                >
+              </div>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
+              3 urgent tasks pending
+            </p>
+          </div>
+          <!-- In Progress Jobs -->
+          <div
+            class="bg-surface border border-outline-variant p-lg rounded-xl shadow-sm"
+          >
+            <div class="flex justify-between items-start mb-md">
+              <div>
+                <p
+                  class="font-label-uppercase text-label-uppercase text-on-surface-variant mb-1"
+                >
+                  In Progress
+                </p>
+                <h3
+                  class="font-display-lg text-display-lg font-bold text-on-surface"
+                >
+                  05
+                </h3>
+              </div>
+              <div class="p-2 bg-secondary-container/10 rounded-lg">
+                <span class="material-symbols-outlined text-secondary"
+                  >pending_actions</span
+                >
+              </div>
+            </div>
+            <p class="font-body-sm text-body-sm text-on-surface-variant">
+              Active technician tracking
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between mb-lg gap-md"
+        >
+          <div>
+            <nav
+              class="flex text-label-uppercase text-on-surface-variant mb-xs"
+            >
+              <span class="">Portal</span><span class="mx-2">/</span
+              ><span class="text-primary">All Jobs</span>
+            </nav>
+            <h1 class="font-display-lg text-display-lg text-on-surface">
+              All Jobs
+            </h1>
+          </div>
+        </div>
+        <!-- Tabbed View -->
+        <!-- Tasks List (Bento Grid Layout) -->
+        <div class="grid grid-cols-1 xl:grid-cols-2 gap-lg">
+          <div class="col-span-full space-y-md">
+            <!-- Compact Job Card 1 -->
+            <div
+              class="bg-surface border border-outline-variant rounded-lg p-md flex flex-wrap items-center justify-between gap-md hover:shadow-sm transition-shadow"
+            >
+              <div class="flex items-center gap-md min-w-[300px] flex-1">
+                <span
+                  class="bg-error/10 text-error px-sm py-xs rounded text-[10px] font-bold uppercase whitespace-nowrap"
+                  >Urgent</span
+                >
+                <div class="flex flex-col">
+                  <h3 class="font-body-base font-bold text-on-surface">
+                    AC unit not cooling - Level 3, Room 302, Hledan Center
+                  </h3>
+                  <p class="text-xs text-on-surface-variant">
+                    Junction City Tower, Level 6
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-xl">
+                <div class="text-right">
+                  <p
+                    class="font-data-tabular text-[10px] text-on-surface-variant uppercase tracking-tighter"
+                  >
+                    Job ID
+                  </p>
+                  <p class="text-body-sm font-medium">#ORD-8821</p>
+                </div>
+                <div class="min-w-[100px] text-right">
+                  <span
+                    class="bg-green-50 text-green-700 border border-green-200 px-md py-1 rounded-full text-xs font-semibold"
+                    >Completed</span
+                  >
+                </div>
+                <button class="text-primary">
+                  <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+              </div>
+            </div>
+            <!-- Compact Job Card 2 -->
+            <div
+              class="bg-surface border border-outline-variant rounded-lg p-md flex flex-wrap items-center justify-between gap-md hover:shadow-sm transition-shadow"
+            >
+              <div class="flex items-center gap-md min-w-[300px] flex-1">
+                <span
+                  class="bg-tertiary-container/10 text-tertiary px-sm py-xs rounded text-[10px] font-bold uppercase whitespace-nowrap"
+                  >Normal</span
+                >
+                <div class="flex flex-col">
+                  <h3 class="font-body-base font-bold text-on-surface">
+                    Leaking pipe - Hledan Center pantry
+                  </h3>
+                  <p class="text-xs text-on-surface-variant">
+                    Pantry, Level 1, Hledan Center
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-xl">
+                <div class="text-right">
+                  <p
+                    class="font-data-tabular text-[10px] text-on-surface-variant uppercase tracking-tighter"
+                  >
+                    Job ID
+                  </p>
+                  <p class="text-body-sm font-medium">#ORD-9104</p>
+                </div>
+                <div class="min-w-[100px] text-right">
+                  <span
+                    class="bg-surface-container-high text-on-surface-variant border border-outline-variant px-md py-1 rounded-full text-xs font-semibold"
+                    >Assigned</span
+                  >
+                </div>
+                <button class="text-primary">
+                  <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+              </div>
+            </div>
+            <!-- Compact Job Card 3 -->
+            <div
+              class="bg-surface border border-outline-variant rounded-lg p-md flex flex-wrap items-center justify-between gap-md hover:shadow-sm transition-shadow"
+            >
+              <div class="flex items-center gap-md min-w-[300px] flex-1">
+                <span
+                  class="bg-tertiary-container/10 text-tertiary px-sm py-xs rounded text-[10px] font-bold uppercase whitespace-nowrap"
+                  >Normal</span
+                >
+                <div class="flex flex-col">
+                  <h3 class="font-body-base font-bold text-on-surface">
+                    Light ballast replacement at Junction Square
+                  </h3>
+                  <p class="text-xs text-on-surface-variant">
+                    Basement Parking, Junction Square
+                  </p>
+                </div>
+              </div>
+              <div class="flex items-center gap-xl">
+                <div class="text-right">
+                  <p
+                    class="font-data-tabular text-[10px] text-on-surface-variant uppercase tracking-tighter"
+                  >
+                    Job ID
+                  </p>
+                  <p class="text-body-sm font-medium">#ORD-8992</p>
+                </div>
+                <div class="min-w-[100px] text-right">
+                  <span
+                    class="bg-blue-50 text-blue-700 border border-blue-200 px-md py-1 rounded-full text-xs font-semibold"
+                    >In Progress</span
+                  >
+                </div>
+                <button class="text-primary">
+                  <span class="material-symbols-outlined">chevron_right</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- FAB (Contextual for Technician) -->
+    <button
+      class="fixed bottom-lg right-lg w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-105 active:scale-95 transition-all z-50"
+    >
+      <span class="material-symbols-outlined" data-icon="qr_code_scanner"
+        >qr_code_scanner</span
+      >
+    </button>
+
+    ```
+  
+  <script>
+    document.querySelectorAll('nav a').forEach(a => {
+      const t = a.textContent.trim();
+      if (t === 'Settings') a.href = 'technician-settings.html';
+      if (t === 'Logout')   a.href = 'log-in.html';
+    });
+    // Job row chevrons → detail
+    document.querySelectorAll('button span.material-symbols-outlined').forEach(icon => {
+      if (icon.textContent.trim() === 'chevron_right') {
+        icon.closest('button').addEventListener('click', () => location.href = 'technician-job.html');
+      }
+    });
+    // FAB QR scanner (no-op in prototype)
+    const fab = document.querySelector('button.fixed.bottom-lg');
+    if (fab) fab.title = 'QR Scanner — not available in prototype';
+  </script>
+  <script src="prototype-flow.js"></script>
+  </body>
+</html>
